@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>PerfTest Triage Report</title>
+<style>
+body { font-family: sans-serif; padding: 1em; }
+h2 { margin: .8em 0 .4em; }
+h3 { margin: .6em 0 .3em; color: #555; font-size: 1em; }
+ul.buglist { list-style: disc; padding-left: 1em; margin: 0; }
+ul.details { list-style: circle; padding-left: 1.5em; margin-top: 0.25em; margin-bottom: 0; }
+ul.subdetails { list-style: square; padding-left: 2em; margin: 0; }
+.section { margin-top: 12px; }
+.component-group { margin-top: 10px; }
+
+ 
+.tabs { display: flex; gap: 4px; border-bottom: 2px solid #ddd; margin: 0 0 6px; }
+.tabs button { font: inherit; font-size: .95em; padding: .5em 1.1em; border: none;
+  background: none; color: #555; cursor: pointer; border-bottom: 3px solid transparent;
+  margin-bottom: -2px; }
+.tabs button:hover { color: #000; background: #f5f5f5; }
+.tabs button[aria-selected="true"] { color: #000; font-weight: bold; border-bottom-color: #e76800; }
+.tabpanel[hidden] { display: none; }
+
+ 
+.harness { margin-top: 1.2em; }
+.harness-header { font-size: 1.1em; font-weight: bold; border-bottom: 2px solid #e76800;
+  padding-bottom: .2em; margin-bottom: .5em; }
+.harness-totals { font-size: .85em; color: #555; margin-left: .5em; font-weight: normal; }
+.suite { margin-top: 10px; border-left: 3px solid #e76800; padding-left: .8em; }
+.suite.spike { border-left-color: #d00; }
+.suite-header { font-weight: bold; margin-bottom: .2em; }
+.rank { color: #aaa; font-size: 0.85em; margin-right: .3em; }
+.badge, .badge2d, .badge-spike, .badge-rate { color: #fff; padding: 2px 7px;
+  border-radius: 3px; font-size: 0.82em; margin-left: .3em; font-weight: normal; }
+.badge { background: #e76800; }
+.badge2d { background: #888; }
+.badge-spike { background: #d00; }
+.badge-rate { background: #0060df; }
+
+ 
+table.rates { border-collapse: collapse; font-size: .9em; margin-top: .5em; }
+table.rates th, table.rates td { padding: 4px 10px; text-align: left;
+  border-bottom: 1px solid #eee; }
+table.rates th { border-bottom: 2px solid #ddd; color: #555; }
+table.rates td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.rates tr:hover { background: #fafafa; }
+.pct-bad { color: #d00; font-weight: bold; }
+.pct-warn { color: #b36b00; font-weight: bold; }
+.note { font-size: .85em; color: #666; margin: .4em 0 0; }
+.warn { font-size: .88em; color: #8a4b00; background: #fff4e5; border-left: 3px solid #e76800;
+  padding: .5em .8em; margin: .5em 0; }
+</style>
+</head><body>
+
+<p style="font-size: 0.9em; color: #666; user-select: none;">
+  Last updated: 2026-07-29 01:21 UTC |
+<a href="https://github.com/92kns/perftest-triage-report/issues" target="_blank" style="font-size: 0.9em;">
+  🐞 File an issue on GitHub
+</a>
+</p>
+
+<div class="tabs" role="tablist">
+  <button role="tab" aria-selected="true" aria-controls="tab-triage">🟧 Intermittent Triage</button>
+  <button role="tab" aria-selected="false" aria-controls="tab-suites">🧪 Test Suites</button>
+  <button role="tab" aria-selected="false" aria-controls="tab-rates">📉 Job Success Rate</button>
+</div>
+
+<div class="tabpanel" id="tab-triage" role="tabpanel">
+<h2>🟧 Intermittent Failures</h2>
+
+<div class="component-group">
+  <h3>mozperftest</h3>
+  <ul class="buglist">
+  
+  <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657 - Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process.</a>
+    <ul class="details">
+      <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank">Orange Factor Graph 📈</a></li>
+      <li><b>7d window:</b> <b>344</b> failures (5.2% rate) ↑ &#43;232</li>
+      
+        <li>Platforms (7d):
+          <ul class="subdetails"><li>android-hw-a55: 326</li><li>android-hw-p6: 9</li><li>android-hw-s24: 9</li></ul>
+        </li>
+      
+      
+        <li>Repository Breakdown (7d):
+          <ul class="subdetails"><li>autoland: 313</li><li>mozilla-central: 31</li></ul>
+        </li>
+      
+      <li><b>2d window:</b> <b>106</b> failures (4.2% rate)</li>
+      
+        <li>Platforms (2d):
+          <ul class="subdetails"><li>android-hw-a55: 105</li><li>android-hw-s24: 1</li></ul>
+        </li>
+      
+      
+        <li>Repository Breakdown (2d):
+          <ul class="subdetails"><li>autoland: 103</li><li>mozilla-central: 3</li></ul>
+        </li>
+      
+      <li>Opened: 7 days ago</li>
+      
+      
+    </ul>
+  </li>
+  
+  <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441 - High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug</a>
+    <ul class="details">
+      <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank">Orange Factor Graph 📈</a></li>
+      <li><b>7d window:</b> <b>205</b> failures (3.1% rate) ↓ -20</li>
+      
+        <li>Platforms (7d):
+          <ul class="subdetails"><li>android-hw-a55: 151</li><li>android-hw-p6: 28</li><li>android-hw-s24: 25</li><li>linux2404: 1</li></ul>
+        </li>
+      
+      
+        <li>Repository Breakdown (7d):
+          <ul class="subdetails"><li>autoland: 98</li><li>mozilla-central: 107</li></ul>
+        </li>
+      
+      <li><b>2d window:</b> <b>65</b> failures (2.6% rate)</li>
+      
+        <li>Platforms (2d):
+          <ul class="subdetails"><li>android-hw-a55: 52</li><li>android-hw-p6: 8</li><li>android-hw-s24: 5</li></ul>
+        </li>
+      
+      
+        <li>Repository Breakdown (2d):
+          <ul class="subdetails"><li>autoland: 34</li><li>mozilla-central: 31</li></ul>
+        </li>
+      
+      <li>Opened: 80 days ago</li>
+      
+      <li><b>NEEDINFO</b>: aglavic@mozilla.com</li>
+    </ul>
+  </li>
+  
+  </ul>
+</div>
+
+<div class="component-group">
+  <h3>Performance</h3>
+  <ul class="buglist">
+  
+  <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1942042" target="_blank">Bug 1942042 - Intermittent Exception: Browsertime process timed out after waiting 120 seconds for output</a>
+    <ul class="details">
+      <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1942042" target="_blank">Orange Factor Graph 📈</a></li>
+      <li><b>7d window:</b> <b>39</b> failures (0.6% rate) ↓ -17</li>
+      
+        <li>Platforms (7d):
+          <ul class="subdetails"><li>macosx1470: 1</li><li>windows11: 38</li></ul>
+        </li>
+      
+      
+        <li>Repository Breakdown (7d):
+          <ul class="subdetails"><li>autoland: 22</li><li>mozilla-beta: 4</li><li>mozilla-central: 13</li></ul>
+        </li>
+      
+      <li><b>2d window:</b> <b>14</b> failures (0.6% rate)</li>
+      
+        <li>Platforms (2d):
+          <ul class="subdetails"><li>windows11: 14</li></ul>
+        </li>
+      
+      
+        <li>Repository Breakdown (2d):
+          <ul class="subdetails"><li>autoland: 7</li><li>mozilla-beta: 1</li><li>mozilla-central: 6</li></ul>
+        </li>
+      
+      <li>Opened: 558 days ago</li>
+      
+      
+    </ul>
+  </li>
+  
+  </ul>
+</div>
+
+<div class="component-group">
+  <h3>Raptor</h3>
+  <ul class="buglist">
+  
+  <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1774954" target="_blank">Bug 1774954 - High frequency raptor-browsertime Critical: Browsertime process timed out after waiting X seconds for output</a>
+    <ul class="details">
+      <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1774954" target="_blank">Orange Factor Graph 📈</a></li>
+      <li><b>7d window:</b> <b>40</b> failures (0.6% rate) ↑ &#43;16</li>
+      
+        <li>Platforms (7d):
+          <ul class="subdetails"><li>linux2404: 1</li><li>windows11: 39</li></ul>
+        </li>
+      
+      
+        <li>Repository Breakdown (7d):
+          <ul class="subdetails"><li>autoland: 28</li><li>mozilla-central: 12</li></ul>
+        </li>
+      
+      <li><b>2d window:</b> <b>17</b> failures (0.7% rate)</li>
+      
+        <li>Platforms (2d):
+          <ul class="subdetails"><li>windows11: 17</li></ul>
+        </li>
+      
+      
+        <li>Repository Breakdown (2d):
+          <ul class="subdetails"><li>autoland: 12</li><li>mozilla-central: 5</li></ul>
+        </li>
+      
+      <li>Opened: 1500 days ago</li>
+      
+      
+    </ul>
+  </li>
+  
+  </ul>
+</div>
+
+
+
+
+
+<div class="section">
+  <h2>🔶 Generic Task Timeout</h2>
+  <ul class="buglist">
+    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1809667" target="_blank">Bug 1809667 - task-timeout (perf tests only)</a>
+      <ul class="details">
+        <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1809667" target="_blank">Orange Factor Graph 📈</a></li>
+        <li><b>7d window:</b> <b>74</b> failures</li>
+        
+          <li>Platforms (7d):
+            <ul class="subdetails"><li>android-hw-a55: 13</li><li>android-hw-p6: 14</li><li>android-hw-s24: 6</li><li>linux1804: 5</li><li>linux2404: 4</li><li>macosx1470: 20</li><li>windows11: 12</li></ul>
+          </li>
+        
+        
+          <li>Repository Breakdown (7d):
+            <ul class="subdetails"><li>autoland: 42</li><li>mozilla-central: 32</li></ul>
+          </li>
+        
+        
+          <li>Suite Breakdown (7d):
+            <ul class="subdetails"><li>browsertime-benchmark-firefox-stylebench: 1</li><li>browsertime-benchmark-speedometer3-mobile-fenix-nofis: 1</li><li>browsertime-benchmark-speedometer3-mobile-fenix: 1</li><li>browsertime-benchmark-unity-webgl-mobile-fenix-nofis: 1</li><li>browsertime-first-install-firefox-welcome: 1</li><li>browsertime-power-mobile-fenix-youtube-playback-h264-720p60-nofis: 3</li><li>browsertime-power-mobile-fenix-youtube-playback-h264-720p60: 2</li><li>browsertime-power-mobile-fenix-youtube-playback-vp9-720p60-nofis: 2</li><li>browsertime-power-mobile-fenix-youtube-playback-vp9-720p60: 4</li><li>browsertime-speculation-rules-firefox-prefetch-conservative: 2</li><li>browsertime-speculation-rules-firefox-prefetch-eager: 2</li><li>browsertime-speculation-rules-firefox-prefetch-immediate: 1</li><li>browsertime-speculation-rules-firefox-prefetch-moderate: 1</li><li>browsertime-speculative-firefox-connect: 2</li><li>browsertime-tp6-essential-firefox-yahoo-mail: 1</li><li>browsertime-tp6m-fenix-reddit-nofis: 1</li><li>browsertime-video-playback-latency-mobile-fenix-vpl-av1: 1</li><li>perftest-android-hw-a55-background-resource-chrome: 1</li><li>perftest-android-hw-a55-background-resource-fenix: 3</li><li>perftest-android-hw-a55-foreground-resource-chrome: 3</li><li>perftest-android-hw-a55-foreground-resource-fenix: 3</li><li>perftest-android-hw-p6-aarch64-shippable-startup-fenix-cold-view-nav-start: 1</li><li>perftest-android-hw-s24-aarch64-shippable-startup-fenix-cold-main-first-frame: 2</li><li>perftest-android-hw-s24-aarch64-shippable-startup-fenix-cold-view-nav-start: 1</li><li>perftest-android-hw-s24-aarch64-shippable-startup-fenix-homeview-startup: 1</li><li>perftest-android-hw-s24-aarch64-shippable-startup-fenix-shopify-applink-startup: 1</li><li>perftest-android-hw-s24-aarch64-shippable-startup-fenix-tab-restore-startup: 1</li><li>talos-bcv-swr: 1</li><li>talos-chrome-no-nv: 2</li><li>talos-chrome-swr: 3</li><li>talos-chrome: 2</li><li>talos-g4-swr: 1</li><li>talos-other-no-nv: 2</li><li>talos-other-swr: 1</li><li>talos-other: 4</li><li>talos-pdfpaint-2-swr: 1</li><li>talos-pdfpaint-5: 1</li><li>talos-pdfpaint-7: 1</li><li>talos-pdfpaint-8: 1</li><li>talos-realworld-webextensions: 4</li><li>talos-svgr-swr: 2</li><li>talos-svgr: 1</li><li>talos-webgl-swr: 1</li><li>talos-webgl: 2</li></ul>
+          </li>
+        
+        <li><b>2d window:</b> <b>29</b> failures</li>
+        
+          <li>Platforms (2d):
+            <ul class="subdetails"><li>android-hw-a55: 3</li><li>android-hw-p6: 4</li><li>android-hw-s24: 1</li><li>linux1804: 5</li><li>linux2404: 3</li><li>macosx1470: 8</li><li>windows11: 5</li></ul>
+          </li>
+        
+        
+          <li>Repository Breakdown (2d):
+            <ul class="subdetails"><li>autoland: 22</li><li>mozilla-central: 7</li></ul>
+          </li>
+        
+        
+          <li>Suite Breakdown (2d):
+            <ul class="subdetails"><li>browsertime-benchmark-firefox-stylebench: 1</li><li>browsertime-power-mobile-fenix-youtube-playback-h264-720p60-nofis: 1</li><li>browsertime-power-mobile-fenix-youtube-playback-h264-720p60: 1</li><li>browsertime-power-mobile-fenix-youtube-playback-vp9-720p60-nofis: 1</li><li>browsertime-speculation-rules-firefox-prefetch-conservative: 1</li><li>browsertime-speculation-rules-firefox-prefetch-eager: 2</li><li>browsertime-speculation-rules-firefox-prefetch-immediate: 1</li><li>browsertime-speculation-rules-firefox-prefetch-moderate: 1</li><li>browsertime-tp6m-fenix-reddit-nofis: 1</li><li>browsertime-video-playback-latency-mobile-fenix-vpl-av1: 1</li><li>perftest-android-hw-a55-foreground-resource-fenix: 1</li><li>perftest-android-hw-p6-aarch64-shippable-startup-fenix-cold-view-nav-start: 1</li><li>perftest-android-hw-s24-aarch64-shippable-startup-fenix-cold-main-first-frame: 1</li><li>talos-chrome-no-nv: 2</li><li>talos-chrome-swr: 2</li><li>talos-chrome: 2</li><li>talos-other-no-nv: 2</li><li>talos-other-swr: 1</li><li>talos-other: 4</li><li>talos-pdfpaint-7: 1</li><li>talos-realworld-webextensions: 1</li></ul>
+          </li>
+        
+      </ul>
+    </li>
+  </ul>
+</div>
+
+</div>
+
+<div class="tabpanel" id="tab-suites" role="tabpanel" hidden>
+
+  <h2>🧪 Top 25 Failing Test Suites (7d)</h2>
+  <p class="note">
+    Failure counts come from Treeherder's intermittent-failure data, grouped by test suite.
+    Success rate is the share of that suite's job runs that passed, from the jobs API.
+    A suite with no pass-rate badge has no matching job data — that is unknown, not 100%.
+  </p>
+  
+  
+  <div class="harness">
+    <div class="harness-header">
+      mozperftest
+      <span class="harness-totals" title="Summed over the suites shown here, not the whole harness">— 526 failures in shown suites (7d), 167 (2d)</span>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#1</span>perftest-android-hw-a55-aarch64-shippable-startup-fenix-tab-restore-startup<span class="badge">183 (7d)</span><span class="badge2d">59 (2d)</span><span class="badge-rate" title="380 job runs in the 7d window">20.8% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-a55: 183</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 179</li><li>mozilla-central: 4</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process. <b>(176)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(7)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#2</span>perftest-android-hw-a55-aarch64-shippable-startup-fenix-shopify-applink-startup<span class="badge">148 (7d)</span><span class="badge2d">48 (2d)</span><span class="badge-rate" title="211 job runs in the 7d window">23.2% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-a55: 148</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 141</li><li>mozilla-central: 7</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process. <b>(141)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(7)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#3</span>perftest-android-hw-a55-background-resource-fenix<span class="badge">61 (7d)</span><span class="badge2d">21 (2d)</span><span class="badge-rate" title="78 job runs in the 7d window">7.7% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-a55: 61</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 43</li><li>mozilla-central: 18</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(57)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process. <b>(4)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#4</span>perftest-android-hw-a55-foreground-resource-fenix<span class="badge">56 (7d)</span><span class="badge2d">19 (2d)</span><span class="badge-rate" title="70 job runs in the 7d window">12.9% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-a55: 56</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 43</li><li>mozilla-central: 13</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(53)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process. <b>(3)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#5</span>perftest-android-hw-a55-background-resource-chrome<span class="badge">13 (7d)</span><span class="badge2d">4 (2d)</span><span class="badge-rate" title="22 job runs in the 7d window">13.6% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-a55: 13</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 13</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(13)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#6</span>perftest-android-hw-a55-foreground-resource-chrome<span class="badge">12 (7d)</span><span class="badge2d">5 (2d)</span><span class="badge-rate" title="22 job runs in the 7d window">13.6% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-a55: 12</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 12</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(12)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#7</span>perftest-android-hw-p6-aarch64-shippable-startup-chrome-m-shopify-applink-startup<span class="badge">6 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-rate" title="8 job runs in the 7d window">0.0% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-p6: 6</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 6</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(4)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process. <b>(2)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#8</span>perftest-android-hw-p6-aarch64-shippable-startup-fenix-tab-restore-startup<span class="badge">6 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-rate" title="7 job runs in the 7d window">0.0% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-p6: 6</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 6</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(4)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process. <b>(2)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#9</span>perftest-android-hw-p6-aarch64-shippable-startup-chrome-m-tab-restore-startup<span class="badge">5 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-rate" title="8 job runs in the 7d window">25.0% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-p6: 5</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 5</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(4)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process. <b>(1)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#10</span>perftest-android-hw-p6-aarch64-shippable-startup-fenix-shopify-applink-startup<span class="badge">5 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-rate" title="7 job runs in the 7d window">14.3% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-p6: 5</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 5</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(3)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process. <b>(2)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#11</span>perftest-android-hw-s24-aarch64-shippable-startup-chrome-m-shopify-applink-startup<span class="badge">5 (7d)</span><span class="badge2d">2 (2d)</span><span class="badge-rate" title="8 job runs in the 7d window">12.5% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-s24: 5</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 5</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process. <b>(3)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(2)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#12</span>perftest-android-hw-s24-aarch64-shippable-startup-fenix-tab-restore-startup<span class="badge">5 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-rate" title="7 job runs in the 7d window">0.0% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-s24: 5</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 5</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(5)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#13</span>perftest-android-hw-s24-aarch64-shippable-startup-chrome-m-cold-main-first-frame<span class="badge">4 (7d)</span><span class="badge-rate" title="7 job runs in the 7d window">14.3% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-s24: 4</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 4</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(4)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#14</span>perftest-android-hw-s24-aarch64-shippable-startup-chrome-m-tab-restore-startup<span class="badge">4 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-rate" title="7 job runs in the 7d window">28.6% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-s24: 4</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 4</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process. <b>(3)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(1)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#15</span>perftest-android-hw-s24-aarch64-shippable-startup-fenix-cold-view-nav-start<span class="badge">4 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-rate" title="7 job runs in the 7d window">0.0% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-s24: 4</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 4</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(3)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process. <b>(1)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#16</span>perftest-android-hw-a55-aarch64-shippable-startup-fenix-cold-view-nav-start<span class="badge">3 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-rate" title="199 job runs in the 7d window">98.5% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-a55: 3</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 3</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2056657" target="_blank">Bug 2056657</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2056657" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent mozperftest.metrics.exceptions.MetricsMissingResultsError: Could not find any results to process. <b>(2)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(1)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#17</span>perftest-android-hw-p6-aarch64-shippable-startup-chrome-m-cold-main-first-frame<span class="badge">3 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-rate" title="10 job runs in the 7d window">60.0% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-p6: 3</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 3</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(3)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#18</span>perftest-android-hw-s24-aarch64-shippable-startup-fenix-cold-main-first-frame<span class="badge">3 (7d)</span><span class="badge-rate" title="8 job runs in the 7d window">25.0% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-s24: 3</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 3</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2038441" target="_blank">Bug 2038441</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=2038441" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Android perftest [taskcluster:error] Aborting task... | single tracking bug <b>(3)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+  
+  <div class="harness">
+    <div class="harness-header">
+      Raptor
+      <span class="harness-totals" title="Summed over the suites shown here, not the whole harness">— 82 failures in shown suites (7d), 36 (2d)</span>
+    </div>
+    
+    <div class="suite spike">
+      <div class="suite-header">
+        <span class="rank">#1</span>browsertime-tp6-bytecode-firefox-instagram<span class="badge">36 (7d)</span><span class="badge2d">16 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="204 job runs in the 7d window">80.9% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>windows11: 36</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 23</li><li>mozilla-central: 13</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1774954" target="_blank">Bug 1774954</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1774954" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency raptor-browsertime Critical: Browsertime process timed out after waiting X seconds for output <b>(22)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1942042" target="_blank">Bug 1942042</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1942042" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent Exception: Browsertime process timed out after waiting 120 seconds for output <b>(14)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#2</span>browsertime-tp6-essential-firefox-instagram<span class="badge">34 (7d)</span><span class="badge2d">12 (2d)</span><span class="badge-rate" title="296 job runs in the 7d window">86.8% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>windows11: 34</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 23</li><li>mozilla-central: 11</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1942042" target="_blank">Bug 1942042</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1942042" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent Exception: Browsertime process timed out after waiting 120 seconds for output <b>(18)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1774954" target="_blank">Bug 1774954</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1774954" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency raptor-browsertime Critical: Browsertime process timed out after waiting X seconds for output <b>(16)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite spike">
+      <div class="suite-header">
+        <span class="rank">#3</span>browsertime-tp6m-fenix-bing-search-restaurants-nofis<span class="badge">3 (7d)</span><span class="badge2d">2 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="114 job runs in the 7d window">94.7% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-a55: 3</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 3</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1682027" target="_blank">Bug 1682027</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1682027" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency |  results.MissingResultsError: Browsertime cycle missing [&#39;paintTiming&#39;, &#39;first-contentful-paint&#39;] measurement / Browsertime cycle missing [&#39;largestContentfulPaint&#39;, &#39;renderTime&#39;] measurement <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1921101" target="_blank">Bug 1921101</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1921101" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent perftest-support-class Critical: TEST-UNEXPECTED-FAIL | Some visual metrics have an erroneous value of 0. <b>(1)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite spike">
+      <div class="suite-header">
+        <span class="rank">#4</span>browsertime-tp6m-fenix-cnn-nofis<span class="badge">3 (7d)</span><span class="badge2d">3 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="88 job runs in the 7d window">94.3% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-a55: 3</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 2</li><li>mozilla-central: 1</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1921101" target="_blank">Bug 1921101</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1921101" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent perftest-support-class Critical: TEST-UNEXPECTED-FAIL | Some visual metrics have an erroneous value of 0. <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(1)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite spike">
+      <div class="suite-header">
+        <span class="rank">#5</span>browsertime-power-mobile-fenix-youtube-playback-h264-720p60-nofis<span class="badge">2 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="14 job runs in the 7d window">35.7% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-a55: 2</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 2</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite spike">
+      <div class="suite-header">
+        <span class="rank">#6</span>browsertime-tp6-bytecode-firefox-google-slides<span class="badge">2 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="198 job runs in the 7d window">97.5% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>windows11: 2</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 1</li><li>mozilla-central: 1</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1942042" target="_blank">Bug 1942042</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1942042" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent Exception: Browsertime process timed out after waiting 120 seconds for output <b>(2)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite spike">
+      <div class="suite-header">
+        <span class="rank">#7</span>browsertime-tp6-firefox-google-search<span class="badge">2 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="153 job runs in the 7d window">97.4% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>windows11: 2</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-beta: 2</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1942042" target="_blank">Bug 1942042</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1942042" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent Exception: Browsertime process timed out after waiting 120 seconds for output <b>(2)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+  
+
+</div>
+
+<div class="tabpanel" id="tab-rates" role="tabpanel" hidden>
+
+  <h2>📉 Lowest Job Success Rates (7d)</h2>
+  
+  <p class="note">
+    Share of job runs that ended in <code>success</code>, per Treeherder job type, across
+    autoland, mozilla-central and mozilla-beta. Perf harnesses only (Browsertime, Talos,
+    AWSY, mozperftest). Job types with fewer than 20 runs, and those at 100%,
+    are omitted. Side-by-side jobs are collapsed into a single row.
+  </p>
+  <table class="rates">
+    <thead><tr><th>Success</th><th class="num">Passed</th><th class="num">Runs</th><th>Tier</th><th>Job type</th></tr></thead>
+    <tbody>
+    
+      <tr>
+        <td class="pct-bad">7.7%</td>
+        <td class="num">6</td>
+        <td class="num">78</td>
+        <td>2</td>
+        <td>perftest-android-hw-a55-background-resource-fenix</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">12.9%</td>
+        <td class="num">9</td>
+        <td class="num">70</td>
+        <td>2</td>
+        <td>perftest-android-hw-a55-foreground-resource-fenix</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">13.6%</td>
+        <td class="num">3</td>
+        <td class="num">22</td>
+        <td>2</td>
+        <td>perftest-android-hw-a55-background-resource-chrome</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">13.6%</td>
+        <td class="num">3</td>
+        <td class="num">22</td>
+        <td>2</td>
+        <td>perftest-android-hw-a55-foreground-resource-chrome</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">20.8%</td>
+        <td class="num">79</td>
+        <td class="num">380</td>
+        <td>2</td>
+        <td>perftest-android-hw-a55-aarch64-shippable-startup-fenix-tab-restore-startup</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">23.2%</td>
+        <td class="num">49</td>
+        <td class="num">211</td>
+        <td>2</td>
+        <td>perftest-android-hw-a55-aarch64-shippable-startup-fenix-shopify-applink-startup</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">47.9%</td>
+        <td class="num">34</td>
+        <td class="num">71</td>
+        <td>1</td>
+        <td>test-windows11-64-24h2-shippable/opt-browsertime-tp6-bytecode-firefox-instagram</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">52.6%</td>
+        <td class="num">40</td>
+        <td class="num">76</td>
+        <td>1</td>
+        <td>test-windows11-64-24h2-shippable/opt-browsertime-tp6-essential-firefox-instagram</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">58.3%</td>
+        <td class="num">14</td>
+        <td class="num">24</td>
+        <td>2</td>
+        <td>test-linux1804-64-shippable-qr/opt-talos-chrome-no-nv</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">72.3%</td>
+        <td class="num">68</td>
+        <td class="num">94</td>
+        <td>1</td>
+        <td>test-linux2404-64-shippable/opt-talos-svgr</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">83.5%</td>
+        <td class="num">71</td>
+        <td class="num">85</td>
+        <td>1</td>
+        <td>test-windows11-64-24h2-shippable/opt-talos-other</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">84.6%</td>
+        <td class="num">66</td>
+        <td class="num">78</td>
+        <td>1</td>
+        <td>test-windows11-64-24h2-shippable/opt-talos-damp-inspector</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">85.0%</td>
+        <td class="num">17</td>
+        <td class="num">20</td>
+        <td>2</td>
+        <td>test-android-hw-s24-14-0-aarch64-shippable/opt-browsertime-benchmark-speedometer3-mobile-fenix-nofis</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">86.1%</td>
+        <td class="num">62</td>
+        <td class="num">72</td>
+        <td>1</td>
+        <td>test-windows11-64-25h2-shippable/opt-awsy-tp6</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">86.7%</td>
+        <td class="num">65</td>
+        <td class="num">75</td>
+        <td>1</td>
+        <td>test-macosx1470-64-shippable/opt-talos-damp-inspector</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">87.0%</td>
+        <td class="num">20</td>
+        <td class="num">23</td>
+        <td>1</td>
+        <td>test-windows11-64-24h2-shippable/opt-browsertime-benchmark-firefox-unity-webgl</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">87.1%</td>
+        <td class="num">54</td>
+        <td class="num">62</td>
+        <td>1</td>
+        <td>test-linux2404-64/opt-browsertime-regression-tests-firefox-constant-regression</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">87.1%</td>
+        <td class="num">54</td>
+        <td class="num">62</td>
+        <td>2</td>
+        <td>test-linux2404-64/opt-browsertime-webcodecs-firefox-ve-av1-rt-i420</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">89.9%</td>
+        <td class="num">62</td>
+        <td class="num">69</td>
+        <td>1</td>
+        <td>test-windows11-64-24h2-shippable/opt-talos-other-swr</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-warn">90.0%</td>
+        <td class="num">63</td>
+        <td class="num">70</td>
+        <td>2</td>
+        <td>test-linux1804-64-shippable-qr/opt-talos-damp-webconsole</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-warn">90.9%</td>
+        <td class="num">60</td>
+        <td class="num">66</td>
+        <td>1</td>
+        <td>test-macosx1470-64-shippable/opt-talos-svgr</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-warn">91.5%</td>
+        <td class="num">65</td>
+        <td class="num">71</td>
+        <td>1</td>
+        <td>test-macosx1470-64-shippable/opt-talos-damp-webconsole</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-warn">91.8%</td>
+        <td class="num">146</td>
+        <td class="num">159</td>
+        <td>1</td>
+        <td>test-windows11-64-24h2-shippable/opt-talos-damp-other</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-warn">92.3%</td>
+        <td class="num">60</td>
+        <td class="num">65</td>
+        <td>1</td>
+        <td>test-windows11-64-24h2-shippable/opt-talos-chrome-swr</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-warn">92.3%</td>
+        <td class="num">60</td>
+        <td class="num">65</td>
+        <td>1</td>
+        <td>test-windows11-64-24h2-shippable/opt-talos-svgr</td>
+      </tr>
+    
+    </tbody>
+  </table>
+
+</div>
+
+<script>
+document.querySelectorAll('ul.subdetails li').forEach(el => {
+  el.innerHTML = el.innerHTML.replace(/(:\s*)(\d+)/g, '$1<b>$2</b>');
+});
+
+(function () {
+  const tabs = Array.from(document.querySelectorAll('.tabs button[role="tab"]'));
+  const panelFor = t => document.getElementById(t.getAttribute('aria-controls'));
+
+  function select(tab) {
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      const p = panelFor(t);
+      if (p) p.hidden = !on;
+    });
+    if (location.hash.slice(1) !== tab.getAttribute('aria-controls')) {
+      history.replaceState(null, '', '#' + tab.getAttribute('aria-controls'));
+    }
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => select(t)));
+
+  
+  const fromHash = tabs.find(t => t.getAttribute('aria-controls') === location.hash.slice(1));
+  if (fromHash) select(fromHash);
+})();
+</script>
+</body></html>
