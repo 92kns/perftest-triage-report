@@ -1,0 +1,43 @@
+name: Generate Daily PerfTest Triage Report
+
+# Run when pushed to main branch, otherwise update once
+# a day at 0900 UTC
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    # The per-job success-rate sweep adds ~100 paginated Treeherder requests
+    # on top of the existing per-bug fetches, so the budget is above the
+    # previous 10m.
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: stable
+
+      - name: Build and run report
+        run: |
+          mkdir -p output
+          # `go run .`, not `go run main.go`: the package spans main.go,
+          # suites.go and jobs.go.
+          go run . --no-open --concurrency 25 --top 25
+          mv report.html output/index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./output
+          publish_branch: gh-pages

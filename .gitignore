@@ -1,0 +1,9 @@
+# Generated report (CI moves this to output/index.html)
+report.html
+
+# Built binaries
+perftest-report
+perftest-triage-report
+
+# Local Claude Code settings (personal permission allowlist)
+.claude/settings.local.json

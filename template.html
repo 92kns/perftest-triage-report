@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>PerfTest Triage Report</title>
+<style>
+body { font-family: sans-serif; padding: 1em; }
+h2 { margin: .8em 0 .4em; }
+h3 { margin: .6em 0 .3em; color: #555; font-size: 1em; }
+ul.buglist { list-style: disc; padding-left: 1em; margin: 0; }
+ul.details { list-style: circle; padding-left: 1.5em; margin-top: 0.25em; margin-bottom: 0; }
+ul.subdetails { list-style: square; padding-left: 2em; margin: 0; }
+.section { margin-top: 12px; }
+.component-group { margin-top: 10px; }
+
+/* --- tabs --- */
+.tabs { display: flex; gap: 4px; border-bottom: 2px solid #ddd; margin: 0 0 6px; }
+.tabs button { font: inherit; font-size: .95em; padding: .5em 1.1em; border: none;
+  background: none; color: #555; cursor: pointer; border-bottom: 3px solid transparent;
+  margin-bottom: -2px; }
+.tabs button:hover { color: #000; background: #f5f5f5; }
+.tabs button[aria-selected="true"] { color: #000; font-weight: bold; border-bottom-color: #e76800; }
+.tabpanel[hidden] { display: none; }
+
+/* --- suite report --- */
+.harness { margin-top: 1.2em; }
+.harness-header { font-size: 1.1em; font-weight: bold; border-bottom: 2px solid #e76800;
+  padding-bottom: .2em; margin-bottom: .5em; }
+.harness-totals { font-size: .85em; color: #555; margin-left: .5em; font-weight: normal; }
+.suite { margin-top: 10px; border-left: 3px solid #e76800; padding-left: .8em; }
+.suite.spike { border-left-color: #d00; }
+.suite-header { font-weight: bold; margin-bottom: .2em; }
+.rank { color: #aaa; font-size: 0.85em; margin-right: .3em; }
+.badge, .badge2d, .badge-spike, .badge-rate { color: #fff; padding: 2px 7px;
+  border-radius: 3px; font-size: 0.82em; margin-left: .3em; font-weight: normal; }
+.badge { background: #e76800; }
+.badge2d { background: #888; }
+.badge-spike { background: #d00; }
+.badge-rate { background: #0060df; }
+
+/* --- job success rate --- */
+table.rates { border-collapse: collapse; font-size: .9em; margin-top: .5em; }
+table.rates th, table.rates td { padding: 4px 10px; text-align: left;
+  border-bottom: 1px solid #eee; }
+table.rates th { border-bottom: 2px solid #ddd; color: #555; }
+table.rates td.num { text-align: right; font-variant-numeric: tabular-nums; }
+table.rates tr:hover { background: #fafafa; }
+.pct-bad { color: #d00; font-weight: bold; }
+.pct-warn { color: #b36b00; font-weight: bold; }
+.note { font-size: .85em; color: #666; margin: .4em 0 0; }
+.warn { font-size: .88em; color: #8a4b00; background: #fff4e5; border-left: 3px solid #e76800;
+  padding: .5em .8em; margin: .5em 0; }
+</style>
+</head><body>
+
+<p style="font-size: 0.9em; color: #666; user-select: none;">
+  Last updated: {{.Generated}} |
+<a href="https://github.com/92kns/perftest-triage-report/issues" target="_blank" style="font-size: 0.9em;">
+  🐞 File an issue on GitHub
+</a>
+</p>
+
+<div class="tabs" role="tablist">
+  <button role="tab" aria-selected="true" aria-controls="tab-triage">🟧 Intermittent Triage</button>
+  <button role="tab" aria-selected="false" aria-controls="tab-suites">🧪 Test Suites</button>
+  <button role="tab" aria-selected="false" aria-controls="tab-rates">📉 Job Success Rate</button>
+</div>
+
+<div class="tabpanel" id="tab-triage" role="tabpanel">
+<h2>🟧 Intermittent Failures</h2>
+{{range .Intermittents}}
+<div class="component-group">
+  <h3>{{.Name}}</h3>
+  <ul class="buglist">
+  {{range .Bugs}}
+  <li><a href="{{.Link}}" target="_blank">Bug {{.ID}} - {{.Summary}}</a>
+    <ul class="details">
+      <li><a href="{{.GraphLink}}" target="_blank">Orange Factor Graph 📈</a></li>
+      <li><b>{{$.DaysBack}}d window:</b> <b>{{.NumberFailures}}</b> failures{{if .Rate}} ({{.Rate}} rate){{end}}{{if .Trend}} {{.Trend}}{{end}}</li>
+      {{if .Platforms}}
+        <li>Platforms ({{$.DaysBack}}d):
+          <ul class="subdetails">{{range .Platforms}}<li>{{.}}</li>{{end}}</ul>
+        </li>
+      {{end}}
+      {{if .BreakdownList}}
+        <li>Repository Breakdown ({{$.DaysBack}}d):
+          <ul class="subdetails">{{range .BreakdownList}}<li>{{.}}</li>{{end}}</ul>
+        </li>
+      {{end}}
+      {{if .TwoDay}}<li><b>2d window:</b> <b>{{.TwoDay}}</b> failures{{if .TwoDayRate}} ({{.TwoDayRate}} rate){{end}}</li>{{end}}
+      {{if .TwoDayPlatforms}}
+        <li>Platforms (2d):
+          <ul class="subdetails">{{range .TwoDayPlatforms}}<li>{{.}}</li>{{end}}</ul>
+        </li>
+      {{end}}
+      {{if .TwoDayBreakdown}}
+        <li>Repository Breakdown (2d):
+          <ul class="subdetails">{{range .TwoDayBreakdown}}<li>{{.}}</li>{{end}}</ul>
+        </li>
+      {{end}}
+      {{if .Age}}<li>Opened: {{.Age}} ago</li>{{end}}
+      {{if .Assignee}}<li><b>Assigned To</b>: {{.Assignee}}</li>{{end}}
+      {{if .Needinfo}}<li><b>NEEDINFO</b>: {{.Needinfo}}</li>{{end}}
+    </ul>
+  </li>
+  {{end}}
+  </ul>
+</div>
+{{end}}
+
+{{if .Permas}}
+  <div class="section">
+    <h2>🟥 Perma Failures</h2>
+    {{range .Permas}}
+    <div class="component-group">
+      <h3>{{.Name}}</h3>
+      <ul class="buglist">
+        {{range .Bugs}}
+        <li>
+          <a href="{{.Link}}" target="_blank">Bug {{.ID}} - {{.Summary}}</a>
+          <ul class="details">
+            <li><a href="{{.GraphLink}}" target="_blank">Orange Factor Graph 📈</a></li>
+            {{if .NumberFailures}}<li><b>{{$.DaysBack}}d window:</b> <b>{{.NumberFailures}}</b> failures</li>{{end}}
+            {{if .Platforms}}
+              <li>Platforms ({{$.DaysBack}}d):
+                <ul class="subdetails">{{range .Platforms}}<li>{{.}}</li>{{end}}</ul>
+              </li>
+            {{end}}
+            {{if .BreakdownList}}
+              <li>Repository Breakdown ({{$.DaysBack}}d):
+                <ul class="subdetails">{{range .BreakdownList}}<li>{{.}}</li>{{end}}</ul>
+              </li>
+            {{end}}
+            {{if .TwoDayFailures}}<li><b>2d window:</b> <b>{{.TwoDayFailures}}</b> failures</li>{{end}}
+            {{if .TwoDayPlatforms}}
+              <li>Platforms (2d):
+                <ul class="subdetails">{{range .TwoDayPlatforms}}<li>{{.}}</li>{{end}}</ul>
+              </li>
+            {{end}}
+            {{if .TwoDayBreakdown}}
+              <li>Repository Breakdown (2d):
+                <ul class="subdetails">{{range .TwoDayBreakdown}}<li>{{.}}</li>{{end}}</ul>
+              </li>
+            {{end}}
+            {{if .Age}}<li>Opened: {{.Age}} ago</li>{{end}}
+            {{if .Assignee}}<li><b>Assigned To</b>: {{.Assignee}}</li>{{end}}
+            {{if .Needinfo}}<li><b>NEEDINFO</b>: {{.Needinfo}}</li>{{end}}
+          </ul>
+        </li>
+        {{end}}
+      </ul>
+    </div>
+    {{end}}
+  </div>
+{{end}}
+
+{{if .TaskTimeout}}
+<div class="section">
+  <h2>🔶 Generic Task Timeout</h2>
+  <ul class="buglist">
+    <li><a href="{{.TaskTimeout.Link}}" target="_blank">Bug {{printf "%d" 1809667}} - task-timeout (perf tests only)</a>
+      <ul class="details">
+        <li><a href="{{.TaskTimeout.GraphLink}}" target="_blank">Orange Factor Graph 📈</a></li>
+        <li><b>{{.DaysBack}}d window:</b> <b>{{.TaskTimeout.PerfFailures}}</b> failures</li>
+        {{if .TaskTimeout.Platforms}}
+          <li>Platforms ({{.DaysBack}}d):
+            <ul class="subdetails">{{range .TaskTimeout.Platforms}}<li>{{.}}</li>{{end}}</ul>
+          </li>
+        {{end}}
+        {{if .TaskTimeout.TreeBreakdown}}
+          <li>Repository Breakdown ({{.DaysBack}}d):
+            <ul class="subdetails">{{range .TaskTimeout.TreeBreakdown}}<li>{{.}}</li>{{end}}</ul>
+          </li>
+        {{end}}
+        {{if .TaskTimeout.SuiteBreakdown}}
+          <li>Suite Breakdown ({{.DaysBack}}d):
+            <ul class="subdetails">{{range .TaskTimeout.SuiteBreakdown}}<li>{{.}}</li>{{end}}</ul>
+          </li>
+        {{end}}
+        {{if .TaskTimeout.TwoDayPerfFailures}}<li><b>2d window:</b> <b>{{.TaskTimeout.TwoDayPerfFailures}}</b> failures</li>{{end}}
+        {{if .TaskTimeout.TwoDayPlatforms}}
+          <li>Platforms (2d):
+            <ul class="subdetails">{{range .TaskTimeout.TwoDayPlatforms}}<li>{{.}}</li>{{end}}</ul>
+          </li>
+        {{end}}
+        {{if .TaskTimeout.TwoDayTreeBreakdown}}
+          <li>Repository Breakdown (2d):
+            <ul class="subdetails">{{range .TaskTimeout.TwoDayTreeBreakdown}}<li>{{.}}</li>{{end}}</ul>
+          </li>
+        {{end}}
+        {{if .TaskTimeout.TwoDaySuiteBreakdown}}
+          <li>Suite Breakdown (2d):
+            <ul class="subdetails">{{range .TaskTimeout.TwoDaySuiteBreakdown}}<li>{{.}}</li>{{end}}</ul>
+          </li>
+        {{end}}
+      </ul>
+    </li>
+  </ul>
+</div>
+{{end}}
+</div><!-- /tab-triage -->
+
+<div class="tabpanel" id="tab-suites" role="tabpanel" hidden>
+{{if .Harnesses}}
+  <h2>🧪 Top {{.TopN}} Failing Test Suites ({{.DaysBack}}d)</h2>
+  <p class="note">
+    Failure counts come from Treeherder's intermittent-failure data, grouped by test suite.
+    Success rate is the share of that suite's job runs that passed, from the jobs API.
+    A suite with no pass-rate badge has no matching job data — that is unknown, not 100%.
+  </p>
+  {{if .RateWarning}}<p class="warn">⚠️ {{.RateWarning}}</p>{{end}}
+  {{range .Harnesses}}
+  <div class="harness">
+    <div class="harness-header">
+      {{.Name}}
+      <span class="harness-totals" title="Summed over the suites shown here, not the whole harness">— {{.TotalFailures}} failures in shown suites ({{$.DaysBack}}d){{if .TwoDayFails}}, {{.TwoDayFails}} (2d){{end}}</span>
+    </div>
+    {{range .Suites}}
+    <div class="suite{{if .Spike}} spike{{end}}">
+      <div class="suite-header">
+        <span class="rank">#{{.Rank}}</span>{{.Suite}}<span class="badge">{{.TotalFailures}} ({{$.DaysBack}}d)</span>{{if .TwoDayFails}}<span class="badge2d">{{.TwoDayFails}} (2d)</span>{{end}}{{if .Spike}}<span class="badge-spike">🔺 spiking</span>{{end}}{{if .SuccessRate}}<span class="badge-rate" title="{{.JobRuns}} job runs in the {{$.DaysBack}}d window">{{.SuccessRate}} pass</span>{{end}}
+      </div>
+      <ul class="details">
+        {{if .Platforms}}
+        <li>Platforms:
+          <ul class="subdetails">{{range .Platforms}}<li>{{.}}</li>{{end}}</ul>
+        </li>
+        {{end}}
+        {{if .Trees}}
+        <li>Repositories:
+          <ul class="subdetails">{{range .Trees}}<li>{{.}}</li>{{end}}</ul>
+        </li>
+        {{end}}
+        {{if .Bugs}}
+        <li>Contributing bugs:
+          <ul class="buglist">
+            {{range .Bugs}}<li><a href="{{.Link}}" target="_blank">Bug {{.ID}}</a> <a href="{{.GraphLink}}" target="_blank" title="Orange Factor graph">📈</a> &mdash; {{.Summary}} <b>({{.Failures}})</b>{{if .Component}} <span style="color:#888;font-size:.85em">[{{.Component}}]</span>{{end}}</li>{{end}}
+          </ul>
+        </li>
+        {{end}}
+      </ul>
+    </div>
+    {{end}}
+  </div>
+  {{end}}
+{{else}}
+  <h2>🧪 Test Suites</h2>
+  <p class="note">No suite failures found in this window.</p>
+{{end}}
+</div><!-- /tab-suites -->
+
+<div class="tabpanel" id="tab-rates" role="tabpanel" hidden>
+{{if .JobStats}}
+  <h2>📉 Lowest Job Success Rates ({{.DaysBack}}d)</h2>
+  {{if .RateWarning}}<p class="warn">⚠️ {{.RateWarning}}</p>{{end}}
+  <p class="note">
+    Share of job runs that ended in <code>success</code>, per Treeherder job type, across
+    autoland, mozilla-central and mozilla-beta. Perf harnesses only (Browsertime, Talos,
+    AWSY, mozperftest). Job types with fewer than {{.MinRuns}} runs, and those at 100%,
+    are omitted. Side-by-side jobs are collapsed into a single row.
+  </p>
+  <table class="rates">
+    <thead><tr><th>Success</th><th class="num">Passed</th><th class="num">Runs</th><th>Tier</th><th>Job type</th></tr></thead>
+    <tbody>
+    {{range .JobStats}}
+      <tr>
+        <td class="{{ratePctClass .Success .Total}}">{{.Rate}}</td>
+        <td class="num">{{.Success}}</td>
+        <td class="num">{{.Total}}</td>
+        <td>{{.Tier}}</td>
+        <td>{{.JobTypeName}}</td>
+      </tr>
+    {{end}}
+    </tbody>
+  </table>
+{{else}}
+  <h2>📉 Job Success Rate</h2>
+  <p class="note">No job success data (run without <code>--no-rates</code> to collect it).</p>
+{{end}}
+</div><!-- /tab-rates -->
+
+<script>
+document.querySelectorAll('ul.subdetails li').forEach(el => {
+  el.innerHTML = el.innerHTML.replace(/(:\s*)(\d+)/g, '$1<b>$2</b>');
+});
+
+(function () {
+  const tabs = Array.from(document.querySelectorAll('.tabs button[role="tab"]'));
+  const panelFor = t => document.getElementById(t.getAttribute('aria-controls'));
+
+  function select(tab) {
+    tabs.forEach(t => {
+      const on = t === tab;
+      t.setAttribute('aria-selected', String(on));
+      const p = panelFor(t);
+      if (p) p.hidden = !on;
+    });
+    if (location.hash.slice(1) !== tab.getAttribute('aria-controls')) {
+      history.replaceState(null, '', '#' + tab.getAttribute('aria-controls'));
+    }
+  }
+
+  tabs.forEach(t => t.addEventListener('click', () => select(t)));
+
+  // Deep-link support so a tab can be shared/bookmarked.
+  const fromHash = tabs.find(t => t.getAttribute('aria-controls') === location.hash.slice(1));
+  if (fromHash) select(fromHash);
+})();
+</script>
+</body></html>
