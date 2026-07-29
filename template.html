@@ -18,7 +18,16 @@ ul.subdetails { list-style: square; padding-left: 2em; margin: 0; }
   margin-bottom: -2px; }
 .tabs button:hover { color: #000; background: #f5f5f5; }
 .tabs button[aria-selected="true"] { color: #000; font-weight: bold; border-bottom-color: #e76800; }
+/* display:none keeps hidden panels out of Ctrl+A, innerText and print. */
 .tabpanel[hidden] { display: none; }
+.tabs #copy-tab { margin-left: auto; border-bottom-color: transparent; color: #0060df; }
+.tabs #copy-tab:hover { background: #eef4ff; }
+
+/* Printing / "save as PDF" should also only capture the tab on screen. */
+@media print {
+  .tabs { display: none; }
+  .tabpanel[hidden] { display: none !important; }
+}
 
 /* --- suite report --- */
 .harness { margin-top: 1.2em; }
@@ -62,6 +71,7 @@ table.rates tr:hover { background: #fafafa; }
   <button role="tab" aria-selected="true" aria-controls="tab-triage">🟧 Intermittent Triage</button>
   <button role="tab" aria-selected="false" aria-controls="tab-suites">🧪 Test Suites</button>
   <button role="tab" aria-selected="false" aria-controls="tab-rates">📉 Job Success Rate</button>
+  <button type="button" id="copy-tab" title="Copy just the tab you are looking at">📋 Copy tab</button>
 </div>
 
 <div class="tabpanel" id="tab-triage" role="tabpanel">
@@ -299,6 +309,51 @@ document.querySelectorAll('ul.subdetails li').forEach(el => {
   }
 
   tabs.forEach(t => t.addEventListener('click', () => select(t)));
+
+  // Copy only the tab currently on screen. innerText reflects rendering, so
+  // display:none panels are excluded automatically.
+  const copyBtn = document.getElementById('copy-tab');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      const active = tabs.find(t => t.getAttribute('aria-selected') === 'true');
+      const panel = active && panelFor(active);
+      if (!panel) return;
+      const text = panel.innerText.replace(/\n{3,}/g, '\n\n').trim();
+      const done = ok => {
+        copyBtn.textContent = ok ? '✅ Copied' : '⚠️ Press ⌘C';
+        setTimeout(() => { copyBtn.textContent = '📋 Copy tab'; }, 1500);
+      };
+      try {
+        // Requires a secure context; file:// and http:// fall back below.
+        await navigator.clipboard.writeText(text);
+        done(true);
+      } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+        document.body.appendChild(ta);
+        ta.select();
+        let ok = false;
+        try { ok = document.execCommand('copy'); } catch (_) { ok = false; }
+        document.body.removeChild(ta);
+        done(ok);
+      }
+    });
+  }
+
+  // Ctrl/Cmd+A selects only the visible panel rather than the whole document.
+  document.addEventListener('keydown', ev => {
+    if (!(ev.key === 'a' || ev.key === 'A') || !(ev.metaKey || ev.ctrlKey)) return;
+    const active = tabs.find(t => t.getAttribute('aria-selected') === 'true');
+    const panel = active && panelFor(active);
+    if (!panel) return;
+    ev.preventDefault();
+    const range = document.createRange();
+    range.selectNodeContents(panel);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  });
 
   // Deep-link support so a tab can be shared/bookmarked.
   const fromHash = tabs.find(t => t.getAttribute('aria-controls') === location.hash.slice(1));
