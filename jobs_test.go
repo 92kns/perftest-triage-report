@@ -427,7 +427,7 @@ func TestFetchJobsPageSendsWindowAndGroup(t *testing.T) {
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		gotURL = r.URL.String()
 		w.Header().Set("Content-Type", "application/json")
-		fmt.Fprint(w, `{"results":[]}`)
+		_, _ = fmt.Fprint(w, `{"results":[]}`)
 	}))
 	defer server.Close()
 

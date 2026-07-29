@@ -13,6 +13,10 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    # Push the generated report to gh-pages. New repos default GITHUB_TOKEN
+    # to read-only, so this must be granted explicitly.
+    permissions:
+      contents: write
     # The per-job success-rate sweep adds ~100 paginated Treeherder requests
     # on top of the existing per-bug fetches, so the budget is above the
     # previous 10m.
