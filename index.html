@@ -18,7 +18,16 @@ ul.subdetails { list-style: square; padding-left: 2em; margin: 0; }
   margin-bottom: -2px; }
 .tabs button:hover { color: #000; background: #f5f5f5; }
 .tabs button[aria-selected="true"] { color: #000; font-weight: bold; border-bottom-color: #e76800; }
+ 
 .tabpanel[hidden] { display: none; }
+.tabs #copy-tab { margin-left: auto; border-bottom-color: transparent; color: #0060df; }
+.tabs #copy-tab:hover { background: #eef4ff; }
+
+ 
+@media print {
+  .tabs { display: none; }
+  .tabpanel[hidden] { display: none !important; }
+}
 
  
 .harness { margin-top: 1.2em; }
@@ -52,7 +61,7 @@ table.rates tr:hover { background: #fafafa; }
 </head><body>
 
 <p style="font-size: 0.9em; color: #666; user-select: none;">
-  Last updated: 2026-07-29 01:23 UTC |
+  Last updated: 2026-07-29 01:29 UTC |
 <a href="https://github.com/92kns/perftest-triage-report/issues" target="_blank" style="font-size: 0.9em;">
   🐞 File an issue on GitHub
 </a>
@@ -62,6 +71,7 @@ table.rates tr:hover { background: #fafafa; }
   <button role="tab" aria-selected="true" aria-controls="tab-triage">🟧 Intermittent Triage</button>
   <button role="tab" aria-selected="false" aria-controls="tab-suites">🧪 Test Suites</button>
   <button role="tab" aria-selected="false" aria-controls="tab-rates">📉 Job Success Rate</button>
+  <button type="button" id="copy-tab" title="Copy just the tab you are looking at">📋 Copy tab</button>
 </div>
 
 <div class="tabpanel" id="tab-triage" role="tabpanel">
@@ -181,7 +191,7 @@ table.rates tr:hover { background: #fafafa; }
   <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1774954" target="_blank">Bug 1774954 - High frequency raptor-browsertime Critical: Browsertime process timed out after waiting X seconds for output</a>
     <ul class="details">
       <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-07-22&amp;endday=2026-07-29&amp;tree=all&amp;bug=1774954" target="_blank">Orange Factor Graph 📈</a></li>
-      <li><b>7d window:</b> <b>40</b> failures (0.6% rate) ↑ &#43;16</li>
+      <li><b>7d window:</b> <b>41</b> failures (0.6% rate) ↑ &#43;17</li>
       
         <li>Platforms (7d):
           <ul class="subdetails"><li>linux2404: 1</li><li>windows11: 40</li></ul>
@@ -192,7 +202,7 @@ table.rates tr:hover { background: #fafafa; }
           <ul class="subdetails"><li>autoland: 29</li><li>mozilla-central: 12</li></ul>
         </li>
       
-      <li><b>2d window:</b> <b>17</b> failures (0.7% rate)</li>
+      <li><b>2d window:</b> <b>18</b> failures (0.7% rate)</li>
       
         <li>Platforms (2d):
           <ul class="subdetails"><li>windows11: 18</li></ul>
@@ -737,7 +747,7 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite spike">
       <div class="suite-header">
-        <span class="rank">#1</span>browsertime-tp6-bytecode-firefox-instagram<span class="badge">36 (7d)</span><span class="badge2d">16 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="204 job runs in the 7d window">80.9% pass</span>
+        <span class="rank">#1</span>browsertime-tp6-bytecode-firefox-instagram<span class="badge">36 (7d)</span><span class="badge2d">16 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="206 job runs in the 7d window">81.1% pass</span>
       </div>
       <ul class="details">
         
@@ -762,7 +772,7 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite">
       <div class="suite-header">
-        <span class="rank">#2</span>browsertime-tp6-essential-firefox-instagram<span class="badge">35 (7d)</span><span class="badge2d">13 (2d)</span><span class="badge-rate" title="296 job runs in the 7d window">86.8% pass</span>
+        <span class="rank">#2</span>browsertime-tp6-essential-firefox-instagram<span class="badge">35 (7d)</span><span class="badge2d">13 (2d)</span><span class="badge-rate" title="297 job runs in the 7d window">86.9% pass</span>
       </div>
       <ul class="details">
         
@@ -978,9 +988,9 @@ table.rates tr:hover { background: #fafafa; }
       </tr>
     
       <tr>
-        <td class="pct-bad">47.9%</td>
-        <td class="num">34</td>
-        <td class="num">71</td>
+        <td class="pct-bad">49.3%</td>
+        <td class="num">36</td>
+        <td class="num">73</td>
         <td>1</td>
         <td>test-windows11-64-24h2-shippable/opt-browsertime-tp6-bytecode-firefox-instagram</td>
       </tr>
@@ -1058,19 +1068,19 @@ table.rates tr:hover { background: #fafafa; }
       </tr>
     
       <tr>
-        <td class="pct-bad">87.1%</td>
-        <td class="num">54</td>
-        <td class="num">62</td>
-        <td>2</td>
-        <td>test-linux2404-64/opt-browsertime-webcodecs-firefox-ve-av1-rt-i420</td>
+        <td class="pct-bad">87.3%</td>
+        <td class="num">55</td>
+        <td class="num">63</td>
+        <td>1</td>
+        <td>test-linux2404-64/opt-browsertime-regression-tests-firefox-constant-regression</td>
       </tr>
     
       <tr>
         <td class="pct-bad">87.3%</td>
         <td class="num">55</td>
         <td class="num">63</td>
-        <td>1</td>
-        <td>test-linux2404-64/opt-browsertime-regression-tests-firefox-constant-regression</td>
+        <td>2</td>
+        <td>test-linux2404-64/opt-browsertime-webcodecs-firefox-ve-av1-rt-i420</td>
       </tr>
     
       <tr>
@@ -1156,6 +1166,51 @@ document.querySelectorAll('ul.subdetails li').forEach(el => {
   }
 
   tabs.forEach(t => t.addEventListener('click', () => select(t)));
+
+  
+  
+  const copyBtn = document.getElementById('copy-tab');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', async () => {
+      const active = tabs.find(t => t.getAttribute('aria-selected') === 'true');
+      const panel = active && panelFor(active);
+      if (!panel) return;
+      const text = panel.innerText.replace(/\n{3,}/g, '\n\n').trim();
+      const done = ok => {
+        copyBtn.textContent = ok ? '✅ Copied' : '⚠️ Press ⌘C';
+        setTimeout(() => { copyBtn.textContent = '📋 Copy tab'; }, 1500);
+      };
+      try {
+        
+        await navigator.clipboard.writeText(text);
+        done(true);
+      } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+        document.body.appendChild(ta);
+        ta.select();
+        let ok = false;
+        try { ok = document.execCommand('copy'); } catch (_) { ok = false; }
+        document.body.removeChild(ta);
+        done(ok);
+      }
+    });
+  }
+
+  
+  document.addEventListener('keydown', ev => {
+    if (!(ev.key === 'a' || ev.key === 'A') || !(ev.metaKey || ev.ctrlKey)) return;
+    const active = tabs.find(t => t.getAttribute('aria-selected') === 'true');
+    const panel = active && panelFor(active);
+    if (!panel) return;
+    ev.preventDefault();
+    const range = document.createRange();
+    range.selectNodeContents(panel);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  });
 
   
   const fromHash = tabs.find(t => t.getAttribute('aria-controls') === location.hash.slice(1));
