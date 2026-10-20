@@ -61,7 +61,7 @@ table.rates tr:hover { background: #fafafa; }
 </head><body>
 
 <p style="font-size: 0.9em; color: #666; user-select: none;">
-  Last updated: 2026-10-19 16:17 UTC |
+  Last updated: 2026-10-20 14:12 UTC |
 <a href="https://github.com/92kns/perftest-triage-report/issues" target="_blank" style="font-size: 0.9em;">
   🐞 File an issue on GitHub
 </a>
@@ -78,35 +78,73 @@ table.rates tr:hover { background: #fafafa; }
 <h2>🟧 Intermittent Failures</h2>
 
 <div class="component-group">
+  <h3>Performance</h3>
+  <ul class="buglist">
+  
+  <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2065125" target="_blank">Bug 2065125 - Intermittent TEST-UNEXPECTED-FAIL : xperf: File &#39;c:\windows\system32\en-us\wscapi.dll.mui&#39; (normalized from &#39;C:\Windows\system32\en-US\wscapi.dll.mui&#39;) was accessed and we were not expecting it.  DiskReadCount: 2, DiskWriteCount: 0, DiskReadByte</a>
+    <ul class="details">
+      <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2065125" target="_blank">Orange Factor Graph 📈</a></li>
+      <li><b>7d window:</b> <b>20</b> failures (0.2% rate)</li>
+      
+        <li>Platforms (7d):
+          <ul class="subdetails"><li>windows11: 20</li></ul>
+        </li>
+      
+      
+        <li>Repository Breakdown (7d):
+          <ul class="subdetails"><li>autoland: 16</li><li>mozilla-central: 4</li></ul>
+        </li>
+      
+      <li><b>2d window:</b> <b>9</b> failures (0.4% rate)</li>
+      
+        <li>Platforms (2d):
+          <ul class="subdetails"><li>windows11: 9</li></ul>
+        </li>
+      
+      
+        <li>Repository Breakdown (2d):
+          <ul class="subdetails"><li>autoland: 8</li><li>mozilla-central: 1</li></ul>
+        </li>
+      
+      <li>Opened: 61 days ago</li>
+      
+      
+    </ul>
+  </li>
+  
+  </ul>
+</div>
+
+<div class="component-group">
   <h3>Raptor</h3>
   <ul class="buglist">
   
   <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1966101" target="_blank">Bug 1966101 - Intermittent results.MissingResultsError: Browsertime cycle missing [&#39;largestContentfulPaint&#39;, &#39;renderTime&#39;] measurement</a>
     <ul class="details">
-      <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1966101" target="_blank">Orange Factor Graph 📈</a></li>
-      <li><b>7d window:</b> <b>50</b> failures (0.6% rate) ↓ -12</li>
+      <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1966101" target="_blank">Orange Factor Graph 📈</a></li>
+      <li><b>7d window:</b> <b>48</b> failures (0.5% rate) ↓ -13</li>
       
         <li>Platforms (7d):
-          <ul class="subdetails"><li>android-hw-a55: 50</li></ul>
+          <ul class="subdetails"><li>android-hw-a55: 48</li></ul>
         </li>
       
       
         <li>Repository Breakdown (7d):
-          <ul class="subdetails"><li>autoland: 39</li><li>mozilla-central: 11</li></ul>
+          <ul class="subdetails"><li>autoland: 36</li><li>mozilla-central: 12</li></ul>
         </li>
       
-      <li><b>2d window:</b> <b>11</b> failures (0.8% rate)</li>
+      <li><b>2d window:</b> <b>9</b> failures (0.4% rate)</li>
       
         <li>Platforms (2d):
-          <ul class="subdetails"><li>android-hw-a55: 11</li></ul>
+          <ul class="subdetails"><li>android-hw-a55: 9</li></ul>
         </li>
       
       
         <li>Repository Breakdown (2d):
-          <ul class="subdetails"><li>autoland: 5</li><li>mozilla-central: 6</li></ul>
+          <ul class="subdetails"><li>autoland: 5</li><li>mozilla-central: 4</li></ul>
         </li>
       
-      <li>Opened: 524 days ago</li>
+      <li>Opened: 525 days ago</li>
       
       
     </ul>
@@ -114,30 +152,30 @@ table.rates tr:hover { background: #fafafa; }
   
   <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826 - Intermittent raptor-browsertime Error: Browsertime failed to run</a>
     <ul class="details">
-      <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1795826" target="_blank">Orange Factor Graph 📈</a></li>
-      <li><b>7d window:</b> <b>28</b> failures (0.3% rate) ↑ &#43;21</li>
+      <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1795826" target="_blank">Orange Factor Graph 📈</a></li>
+      <li><b>7d window:</b> <b>39</b> failures (0.4% rate) ↑ &#43;31</li>
       
         <li>Platforms (7d):
-          <ul class="subdetails"><li>android-hw-a55: 1</li><li>android-hw-p6: 7</li><li>android-hw-s24: 6</li><li>linux2404: 9</li><li>windows11: 5</li></ul>
+          <ul class="subdetails"><li>android-hw-a55: 1</li><li>android-hw-p6: 8</li><li>android-hw-s24: 10</li><li>linux2404: 15</li><li>windows11: 5</li></ul>
         </li>
       
       
         <li>Repository Breakdown (7d):
-          <ul class="subdetails"><li>autoland: 4</li><li>mozilla-central: 23</li><li>mozilla-release: 1</li></ul>
+          <ul class="subdetails"><li>autoland: 4</li><li>mozilla-central: 34</li><li>mozilla-release: 1</li></ul>
         </li>
       
-      <li><b>2d window:</b> <b>16</b> failures (1.1% rate)</li>
+      <li><b>2d window:</b> <b>13</b> failures (0.5% rate)</li>
       
         <li>Platforms (2d):
-          <ul class="subdetails"><li>android-hw-p6: 3</li><li>android-hw-s24: 2</li><li>linux2404: 7</li><li>windows11: 4</li></ul>
+          <ul class="subdetails"><li>android-hw-p6: 2</li><li>android-hw-s24: 5</li><li>linux2404: 6</li></ul>
         </li>
       
       
         <li>Repository Breakdown (2d):
-          <ul class="subdetails"><li>autoland: 4</li><li>mozilla-central: 12</li></ul>
+          <ul class="subdetails"><li>mozilla-central: 13</li></ul>
         </li>
       
-      <li>Opened: 1462 days ago</li>
+      <li>Opened: 1463 days ago</li>
       
       
     </ul>
@@ -158,7 +196,7 @@ table.rates tr:hover { background: #fafafa; }
         <li>
           <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2071660" target="_blank">Bug 2071660 - Perma [tier 2] mozperftest.test.shellscript.ScriptFailedError: applink-startup-navigation-start failed with return code 1: Exception: Failed multiple retries with: Expected to match 1 process start string but matched 0</a>
           <ul class="details">
-            <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=2071660" target="_blank">Orange Factor Graph 📈</a></li>
+            <li><a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2071660" target="_blank">Orange Factor Graph 📈</a></li>
             <li><b>7d window:</b> <b>1</b> failures</li>
             
               <li>Platforms (7d):
@@ -181,7 +219,7 @@ table.rates tr:hover { background: #fafafa; }
                 <ul class="subdetails"><li>mozilla-central: 1</li></ul>
               </li>
             
-            <li>Opened: 36 days ago</li>
+            <li>Opened: 37 days ago</li>
             
             <li><b>NEEDINFO</b>: aglavic@mozilla.com</li>
           </ul>
@@ -209,28 +247,28 @@ table.rates tr:hover { background: #fafafa; }
   <div class="harness">
     <div class="harness-header">
       Raptor
-      <span class="harness-totals" title="Summed over the suites shown here, not the whole harness">— 98 failures in shown suites (7d), 30 (2d)</span>
+      <span class="harness-totals" title="Summed over the suites shown here, not the whole harness">— 104 failures in shown suites (7d), 25 (2d)</span>
     </div>
     
     <div class="suite">
       <div class="suite-header">
-        <span class="rank">#1</span>browsertime-tp6m-fenix-bing-search-restaurants<span class="badge">27 (7d)</span><span class="badge2d">7 (2d)</span><span class="badge-rate" title="217 job runs in the 7d window">73.7% pass</span>
+        <span class="rank">#1</span>browsertime-tp6m-fenix-bing-search-restaurants<span class="badge">25 (7d)</span><span class="badge2d">5 (2d)</span><span class="badge-rate" title="130 job runs in the 7d window">76.2% pass</span>
       </div>
       <ul class="details">
         
         <li>Platforms:
-          <ul class="subdetails"><li>android-hw-a55: 27</li></ul>
+          <ul class="subdetails"><li>android-hw-a55: 25</li></ul>
         </li>
         
         
         <li>Repositories:
-          <ul class="subdetails"><li>autoland: 20</li><li>mozilla-central: 7</li></ul>
+          <ul class="subdetails"><li>autoland: 18</li><li>mozilla-central: 7</li></ul>
         </li>
         
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1966101" target="_blank">Bug 1966101</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1966101" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent results.MissingResultsError: Browsertime cycle missing [&#39;largestContentfulPaint&#39;, &#39;renderTime&#39;] measurement <b>(27)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1966101" target="_blank">Bug 1966101</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1966101" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent results.MissingResultsError: Browsertime cycle missing [&#39;largestContentfulPaint&#39;, &#39;renderTime&#39;] measurement <b>(25)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
           </ul>
         </li>
         
@@ -239,7 +277,7 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite">
       <div class="suite-header">
-        <span class="rank">#2</span>browsertime-tp6m-fenix-bing-search-restaurants-nofis<span class="badge">23 (7d)</span><span class="badge2d">4 (2d)</span><span class="badge-rate" title="153 job runs in the 7d window">70.6% pass</span>
+        <span class="rank">#2</span>browsertime-tp6m-fenix-bing-search-restaurants-nofis<span class="badge">23 (7d)</span><span class="badge2d">4 (2d)</span><span class="badge-rate" title="152 job runs in the 7d window">71.7% pass</span>
       </div>
       <ul class="details">
         
@@ -249,13 +287,13 @@ table.rates tr:hover { background: #fafafa; }
         
         
         <li>Repositories:
-          <ul class="subdetails"><li>autoland: 19</li><li>mozilla-central: 4</li></ul>
+          <ul class="subdetails"><li>autoland: 18</li><li>mozilla-central: 5</li></ul>
         </li>
         
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1966101" target="_blank">Bug 1966101</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1966101" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent results.MissingResultsError: Browsertime cycle missing [&#39;largestContentfulPaint&#39;, &#39;renderTime&#39;] measurement <b>(23)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1966101" target="_blank">Bug 1966101</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1966101" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent results.MissingResultsError: Browsertime cycle missing [&#39;largestContentfulPaint&#39;, &#39;renderTime&#39;] measurement <b>(23)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
           </ul>
         </li>
         
@@ -264,48 +302,23 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite">
       <div class="suite-header">
-        <span class="rank">#3</span>browsertime-benchmark-speedometer3-mobile-fenix-nofis<span class="badge">16 (7d)</span><span class="badge2d">6 (2d)</span><span class="badge-rate" title="204 job runs in the 7d window">89.2% pass</span>
+        <span class="rank">#3</span>browsertime-benchmark-speedometer3-mobile-fenix-nofis<span class="badge">17 (7d)</span><span class="badge2d">6 (2d)</span><span class="badge-rate" title="201 job runs in the 7d window">89.6% pass</span>
       </div>
       <ul class="details">
         
         <li>Platforms:
-          <ul class="subdetails"><li>android-hw-p6: 9</li><li>android-hw-s24: 7</li></ul>
+          <ul class="subdetails"><li>android-hw-p6: 9</li><li>android-hw-s24: 8</li></ul>
         </li>
         
         
         <li>Repositories:
-          <ul class="subdetails"><li>mozilla-central: 16</li></ul>
+          <ul class="subdetails"><li>mozilla-central: 17</li></ul>
         </li>
         
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(8)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2082296" target="_blank">Bug 2082296</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=2082296" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Critical: TypeError: Cannot read properties of undefined (reading &#39;samples&#39;) <b>(8)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
-          </ul>
-        </li>
-        
-      </ul>
-    </div>
-    
-    <div class="suite spike">
-      <div class="suite-header">
-        <span class="rank">#4</span>browsertime-benchmark-speedometer3-mobile-fenix<span class="badge">9 (7d)</span><span class="badge2d">5 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="648 job runs in the 7d window">94.3% pass</span>
-      </div>
-      <ul class="details">
-        
-        <li>Platforms:
-          <ul class="subdetails"><li>android-hw-p6: 6</li><li>android-hw-s24: 3</li></ul>
-        </li>
-        
-        
-        <li>Repositories:
-          <ul class="subdetails"><li>mozilla-central: 9</li></ul>
-        </li>
-        
-        
-        <li>Contributing bugs:
-          <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(5)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2082296" target="_blank">Bug 2082296</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=2082296" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Critical: TypeError: Cannot read properties of undefined (reading &#39;samples&#39;) <b>(4)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(9)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2082296" target="_blank">Bug 2082296</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2082296" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Critical: TypeError: Cannot read properties of undefined (reading &#39;samples&#39;) <b>(8)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
           </ul>
         </li>
         
@@ -314,7 +327,32 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite">
       <div class="suite-header">
-        <span class="rank">#5</span>browsertime-tp6-firefox-expedia<span class="badge">3 (7d)</span><span class="badge-rate" title="479 job runs in the 7d window">98.5% pass</span>
+        <span class="rank">#4</span>browsertime-benchmark-speedometer3-mobile-fenix<span class="badge">13 (7d)</span><span class="badge2d">5 (2d)</span><span class="badge-rate" title="822 job runs in the 7d window">79.1% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-p6: 7</li><li>android-hw-s24: 6</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 13</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(9)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2082296" target="_blank">Bug 2082296</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2082296" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Critical: TypeError: Cannot read properties of undefined (reading &#39;samples&#39;) <b>(4)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#5</span>browsertime-tp6-firefox-expedia<span class="badge">3 (7d)</span><span class="badge-rate" title="473 job runs in the 7d window">98.5% pass</span>
       </div>
       <ul class="details">
         
@@ -330,7 +368,7 @@ table.rates tr:hover { background: #fafafa; }
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1942042" target="_blank">Bug 1942042</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1942042" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent Exception: Browsertime process timed out after waiting 120 seconds for output <b>(3)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1942042" target="_blank">Bug 1942042</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1942042" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent Exception: Browsertime process timed out after waiting 120 seconds for output <b>(3)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
           </ul>
         </li>
         
@@ -339,32 +377,7 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite">
       <div class="suite-header">
-        <span class="rank">#6</span>browsertime-benchmark-chrome-speedometer3<span class="badge">2 (7d)</span><span class="badge-rate" title="65 job runs in the 7d window">96.9% pass</span>
-      </div>
-      <ul class="details">
-        
-        <li>Platforms:
-          <ul class="subdetails"><li>windows11: 2</li></ul>
-        </li>
-        
-        
-        <li>Repositories:
-          <ul class="subdetails"><li>mozilla-central: 2</li></ul>
-        </li>
-        
-        
-        <li>Contributing bugs:
-          <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2028315" target="_blank">Bug 2028315</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=2028315" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Cannot find Google Chrome at C:\Progra~2\Google\Chrome\Application\chrome.exe <b>(2)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
-          </ul>
-        </li>
-        
-      </ul>
-    </div>
-    
-    <div class="suite">
-      <div class="suite-header">
-        <span class="rank">#7</span>browsertime-benchmark-firefox-unity-webgl<span class="badge">2 (7d)</span><span class="badge-rate" title="72 job runs in the 7d window">97.2% pass</span>
+        <span class="rank">#6</span>browsertime-benchmark-firefox-unity-webgl<span class="badge">2 (7d)</span><span class="badge-rate" title="75 job runs in the 7d window">97.3% pass</span>
       </div>
       <ul class="details">
         
@@ -380,16 +393,16 @@ table.rates tr:hover { background: #fafafa; }
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
           </ul>
         </li>
         
       </ul>
     </div>
     
-    <div class="suite spike">
+    <div class="suite">
       <div class="suite-header">
-        <span class="rank">#8</span>browsertime-nav-bench-firefox-nav-bench<span class="badge">2 (7d)</span><span class="badge2d">2 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="1012 job runs in the 7d window">96.3% pass</span>
+        <span class="rank">#7</span>browsertime-nav-bench-firefox-nav-bench<span class="badge">2 (7d)</span><span class="badge-rate" title="1041 job runs in the 7d window">96.4% pass</span>
       </div>
       <ul class="details">
         
@@ -405,7 +418,7 @@ table.rates tr:hover { background: #fafafa; }
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
           </ul>
         </li>
         
@@ -414,7 +427,7 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite spike">
       <div class="suite-header">
-        <span class="rank">#9</span>browsertime-network-bench-firefox-h3-download-1M_400ms-0<span class="badge">2 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="25 job runs in the 7d window">56.0% pass</span>
+        <span class="rank">#8</span>browsertime-network-bench-firefox-h3-download-10M_40ms-0<span class="badge">2 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="25 job runs in the 7d window">44.0% pass</span>
       </div>
       <ul class="details">
         
@@ -430,7 +443,7 @@ table.rates tr:hover { background: #fafafa; }
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
           </ul>
         </li>
         
@@ -439,7 +452,82 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite">
       <div class="suite-header">
-        <span class="rank">#10</span>browsertime-tp6-firefox-netflix<span class="badge">2 (7d)</span><span class="badge-rate" title="296 job runs in the 7d window">98.6% pass</span>
+        <span class="rank">#9</span>browsertime-network-bench-firefox-h3-download-1M_400ms-0<span class="badge">2 (7d)</span><span class="badge-rate" title="26 job runs in the 7d window">42.3% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>linux2404: 2</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 2</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite spike">
+      <div class="suite-header">
+        <span class="rank">#10</span>browsertime-network-bench-firefox-h3-download-300M_80ms-0<span class="badge">2 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="26 job runs in the 7d window">42.3% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>linux2404: 2</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 2</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite spike">
+      <div class="suite-header">
+        <span class="rank">#11</span>browsertime-network-bench-firefox-h3-upload<span class="badge">2 (7d)</span><span class="badge2d">2 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="28 job runs in the 7d window">46.4% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>linux2404: 2</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 2</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#12</span>browsertime-tp6-firefox-netflix<span class="badge">2 (7d)</span><span class="badge-rate" title="303 job runs in the 7d window">98.7% pass</span>
       </div>
       <ul class="details">
         
@@ -455,16 +543,16 @@ table.rates tr:hover { background: #fafafa; }
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1942042" target="_blank">Bug 1942042</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1942042" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent Exception: Browsertime process timed out after waiting 120 seconds for output <b>(2)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1942042" target="_blank">Bug 1942042</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1942042" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent Exception: Browsertime process timed out after waiting 120 seconds for output <b>(2)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
           </ul>
         </li>
         
       </ul>
     </div>
     
-    <div class="suite spike">
+    <div class="suite">
       <div class="suite-header">
-        <span class="rank">#11</span>browsertime-tp6-firefox-pinterest<span class="badge">2 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="310 job runs in the 7d window">98.7% pass</span>
+        <span class="rank">#13</span>browsertime-tp6-firefox-pinterest<span class="badge">2 (7d)</span><span class="badge-rate" title="303 job runs in the 7d window">98.7% pass</span>
       </div>
       <ul class="details">
         
@@ -480,16 +568,16 @@ table.rates tr:hover { background: #fafafa; }
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(1)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1942042" target="_blank">Bug 1942042</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1942042" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent Exception: Browsertime process timed out after waiting 120 seconds for output <b>(1)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(1)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1942042" target="_blank">Bug 1942042</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1942042" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent Exception: Browsertime process timed out after waiting 120 seconds for output <b>(1)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
           </ul>
         </li>
         
       </ul>
     </div>
     
-    <div class="suite">
+    <div class="suite spike">
       <div class="suite-header">
-        <span class="rank">#12</span>browsertime-tp6m-fenix-youtube-nofis<span class="badge">2 (7d)</span><span class="badge-rate" title="90 job runs in the 7d window">96.7% pass</span>
+        <span class="rank">#14</span>browsertime-tp6m-essential-fenix-espn<span class="badge">2 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="92 job runs in the 7d window">97.8% pass</span>
       </div>
       <ul class="details">
         
@@ -505,7 +593,7 @@ table.rates tr:hover { background: #fafafa; }
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1921101" target="_blank">Bug 1921101</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1921101" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent perftest-support-class Critical: TEST-UNEXPECTED-FAIL | Some visual metrics have an erroneous value of 0. <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1921101" target="_blank">Bug 1921101</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1921101" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent perftest-support-class Critical: TEST-UNEXPECTED-FAIL | Some visual metrics have an erroneous value of 0. <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
           </ul>
         </li>
         
@@ -514,7 +602,32 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite">
       <div class="suite-header">
-        <span class="rank">#13</span>browsertime-benchmark-chrome-speedometer3-native-profiling<span class="badge">1 (7d)</span><span class="badge-rate" title="30 job runs in the 7d window">93.3% pass</span>
+        <span class="rank">#15</span>browsertime-tp6m-fenix-youtube-nofis<span class="badge">2 (7d)</span><span class="badge-rate" title="89 job runs in the 7d window">96.6% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>android-hw-a55: 2</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 2</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1921101" target="_blank">Bug 1921101</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1921101" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent perftest-support-class Critical: TEST-UNEXPECTED-FAIL | Some visual metrics have an erroneous value of 0. <b>(2)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#16</span>browsertime-benchmark-chrome-speedometer3<span class="badge">1 (7d)</span><span class="badge-rate" title="58 job runs in the 7d window">98.3% pass</span>
       </div>
       <ul class="details">
         
@@ -530,7 +643,7 @@ table.rates tr:hover { background: #fafafa; }
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2028315" target="_blank">Bug 2028315</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=2028315" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Cannot find Google Chrome at C:\Progra~2\Google\Chrome\Application\chrome.exe <b>(1)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2028315" target="_blank">Bug 2028315</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2028315" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Cannot find Google Chrome at C:\Progra~2\Google\Chrome\Application\chrome.exe <b>(1)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
           </ul>
         </li>
         
@@ -539,7 +652,32 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite">
       <div class="suite-header">
-        <span class="rank">#14</span>browsertime-mobile-fenix-youtube-playback-vp9-sfr<span class="badge">1 (7d)</span><span class="badge-rate" title="24 job runs in the 7d window">95.8% pass</span>
+        <span class="rank">#17</span>browsertime-benchmark-chrome-speedometer3-native-profiling<span class="badge">1 (7d)</span><span class="badge-rate" title="28 job runs in the 7d window">92.9% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>windows11: 1</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>mozilla-central: 1</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2028315" target="_blank">Bug 2028315</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2028315" target="_blank" title="Orange Factor graph">📈</a> &mdash; High frequency [tier 2] Cannot find Google Chrome at C:\Progra~2\Google\Chrome\Application\chrome.exe <b>(1)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#18</span>browsertime-mobile-fenix-youtube-playback-vp9-sfr<span class="badge">1 (7d)</span><span class="badge-rate" title="24 job runs in the 7d window">95.8% pass</span>
       </div>
       <ul class="details">
         
@@ -555,7 +693,65 @@ table.rates tr:hover { background: #fafafa; }
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(1)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(1)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+  </div>
+  
+  <div class="harness">
+    <div class="harness-header">
+      Talos
+      <span class="harness-totals" title="Summed over the suites shown here, not the whole harness">— 22 failures in shown suites (7d), 10 (2d)</span>
+    </div>
+    
+    <div class="suite spike">
+      <div class="suite-header">
+        <span class="rank">#1</span>talos-xperf<span class="badge">10 (7d)</span><span class="badge2d">5 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="144 job runs in the 7d window">91.0% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>windows11: 10</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 9</li><li>mozilla-central: 1</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2065125" target="_blank">Bug 2065125</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2065125" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent TEST-UNEXPECTED-FAIL : xperf: File &#39;c:\windows\system32\en-us\wscapi.dll.mui&#39; (normalized from &#39;C:\Windows\system32\en-US\wscapi.dll.mui&#39;) was accessed and we were not expecting it.  DiskReadCount: 2, DiskWriteCount: 0, DiskReadByte <b>(10)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+    
+    <div class="suite">
+      <div class="suite-header">
+        <span class="rank">#2</span>talos-xperf-swr<span class="badge">10 (7d)</span><span class="badge2d">4 (2d)</span><span class="badge-rate" title="134 job runs in the 7d window">91.0% pass</span>
+      </div>
+      <ul class="details">
+        
+        <li>Platforms:
+          <ul class="subdetails"><li>windows11: 10</li></ul>
+        </li>
+        
+        
+        <li>Repositories:
+          <ul class="subdetails"><li>autoland: 7</li><li>mozilla-central: 3</li></ul>
+        </li>
+        
+        
+        <li>Contributing bugs:
+          <ul class="buglist">
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2065125" target="_blank">Bug 2065125</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2065125" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent TEST-UNEXPECTED-FAIL : xperf: File &#39;c:\windows\system32\en-us\wscapi.dll.mui&#39; (normalized from &#39;C:\Windows\system32\en-US\wscapi.dll.mui&#39;) was accessed and we were not expecting it.  DiskReadCount: 2, DiskWriteCount: 0, DiskReadByte <b>(10)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
           </ul>
         </li>
         
@@ -564,98 +760,23 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite spike">
       <div class="suite-header">
-        <span class="rank">#15</span>browsertime-network-bench-firefox-h3-download<span class="badge">1 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="35 job runs in the 7d window">62.9% pass</span>
+        <span class="rank">#3</span>talos-damp-other<span class="badge">2 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="1064 job runs in the 7d window">95.9% pass</span>
       </div>
       <ul class="details">
         
         <li>Platforms:
-          <ul class="subdetails"><li>linux2404: 1</li></ul>
+          <ul class="subdetails"><li>macosx1500: 2</li></ul>
         </li>
         
         
         <li>Repositories:
-          <ul class="subdetails"><li>mozilla-central: 1</li></ul>
+          <ul class="subdetails"><li>autoland: 1</li><li>mozilla-central: 1</li></ul>
         </li>
         
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(1)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
-          </ul>
-        </li>
-        
-      </ul>
-    </div>
-    
-    <div class="suite spike">
-      <div class="suite-header">
-        <span class="rank">#16</span>browsertime-network-bench-firefox-h3-download-10M_40ms-0<span class="badge">1 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="24 job runs in the 7d window">58.3% pass</span>
-      </div>
-      <ul class="details">
-        
-        <li>Platforms:
-          <ul class="subdetails"><li>linux2404: 1</li></ul>
-        </li>
-        
-        
-        <li>Repositories:
-          <ul class="subdetails"><li>mozilla-central: 1</li></ul>
-        </li>
-        
-        
-        <li>Contributing bugs:
-          <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(1)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
-          </ul>
-        </li>
-        
-      </ul>
-    </div>
-    
-    <div class="suite spike">
-      <div class="suite-header">
-        <span class="rank">#17</span>browsertime-network-bench-firefox-h3-download-300M_40ms-0<span class="badge">1 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="23 job runs in the 7d window">56.5% pass</span>
-      </div>
-      <ul class="details">
-        
-        <li>Platforms:
-          <ul class="subdetails"><li>linux2404: 1</li></ul>
-        </li>
-        
-        
-        <li>Repositories:
-          <ul class="subdetails"><li>mozilla-central: 1</li></ul>
-        </li>
-        
-        
-        <li>Contributing bugs:
-          <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(1)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
-          </ul>
-        </li>
-        
-      </ul>
-    </div>
-    
-    <div class="suite spike">
-      <div class="suite-header">
-        <span class="rank">#18</span>browsertime-network-bench-firefox-h3-download-300M_80ms-0<span class="badge">1 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-spike">🔺 spiking</span><span class="badge-rate" title="25 job runs in the 7d window">56.0% pass</span>
-      </div>
-      <ul class="details">
-        
-        <li>Platforms:
-          <ul class="subdetails"><li>linux2404: 1</li></ul>
-        </li>
-        
-        
-        <li>Repositories:
-          <ul class="subdetails"><li>mozilla-central: 1</li></ul>
-        </li>
-        
-        
-        <li>Contributing bugs:
-          <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1795826" target="_blank">Bug 1795826</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1795826" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent raptor-browsertime Error: Browsertime failed to run <b>(1)</b> <span style="color:#888;font-size:.85em">[Raptor]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1851716" target="_blank">Bug 1851716</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1851716" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent talos Automation Error: mozharness timed out after 3600 seconds running [&#39;C:\\Users\\task_1693949797\\build\\venv\\Scripts\\python&#39;, &#39;C:\\Users\\task_1693949797\\build\\tests\\talos\\talos\\run_tests.py&#39;, &#39;--executablePath&#39;, &#39;C:\\Users\\task_ <b>(1)</b> <span style="color:#888;font-size:.85em">[Talos]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1980168" target="_blank">Bug 1980168</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=1980168" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent macOS damp-inspector Automation Error: mozharness timed out after 3600 seconds running [&#39;/opt/worker/tasks/task_175387614102462/build/venv/bin/python&#39;, &#39;/opt/worker/tasks/task_175387614102462/build/tests/talos/talos/run_tests.py&#39;, &#39;--executablePa <b>(1)</b> <span style="color:#888;font-size:.85em">[Talos]</span></li>
           </ul>
         </li>
         
@@ -667,12 +788,12 @@ table.rates tr:hover { background: #fafafa; }
   <div class="harness">
     <div class="harness-header">
       mozperftest
-      <span class="harness-totals" title="Summed over the suites shown here, not the whole harness">— 18 failures in shown suites (7d), 5 (2d)</span>
+      <span class="harness-totals" title="Summed over the suites shown here, not the whole harness">— 19 failures in shown suites (7d), 2 (2d)</span>
     </div>
     
     <div class="suite">
       <div class="suite-header">
-        <span class="rank">#1</span>perftest-android-hw-s24-aarch64-shippable-startup-fenix-newssite-applink-startup<span class="badge">10 (7d)</span><span class="badge2d">3 (2d)</span><span class="badge-rate" title="17 job runs in the 7d window">17.6% pass</span>
+        <span class="rank">#1</span>perftest-android-hw-s24-aarch64-shippable-startup-fenix-newssite-applink-startup<span class="badge">10 (7d)</span><span class="badge-rate" title="15 job runs in the 7d window">20.0% pass</span>
       </div>
       <ul class="details">
         
@@ -688,7 +809,7 @@ table.rates tr:hover { background: #fafafa; }
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2074915" target="_blank">Bug 2074915</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=2074915" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent [tier 2] mozperftest.test.shellscript.ScriptFailedError: newssite-applink-startup failed with return code 1: __main__.InvalidLastFrame: Difference in Images is too high, suspected faulty run <b>(10)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2074915" target="_blank">Bug 2074915</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2074915" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent [tier 2] mozperftest.test.shellscript.ScriptFailedError: newssite-applink-startup failed with return code 1: __main__.InvalidLastFrame: Difference in Images is too high, suspected faulty run <b>(10)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
           </ul>
         </li>
         
@@ -697,23 +818,23 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite">
       <div class="suite-header">
-        <span class="rank">#2</span>perftest-android-hw-s24-aarch64-shippable-startup-fenix-tab-restore-startup<span class="badge">4 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-rate" title="10 job runs in the 7d window">50.0% pass</span>
+        <span class="rank">#2</span>perftest-android-hw-s24-aarch64-shippable-startup-fenix-tab-restore-startup<span class="badge">5 (7d)</span><span class="badge2d">1 (2d)</span><span class="badge-rate" title="11 job runs in the 7d window">45.5% pass</span>
       </div>
       <ul class="details">
         
         <li>Platforms:
-          <ul class="subdetails"><li>android-hw-s24: 4</li></ul>
+          <ul class="subdetails"><li>android-hw-s24: 5</li></ul>
         </li>
         
         
         <li>Repositories:
-          <ul class="subdetails"><li>mozilla-central: 4</li></ul>
+          <ul class="subdetails"><li>mozilla-central: 5</li></ul>
         </li>
         
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2075513" target="_blank">Bug 2075513</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=2075513" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent [tier2] mozperftest.test.shellscript.ScriptFailedError: tab-restore-newssite failed with return code 1: __main__.InvalidLastFrame: Difference in Images is too high, suspected faulty run <b>(4)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2075513" target="_blank">Bug 2075513</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2075513" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent [tier2] mozperftest.test.shellscript.ScriptFailedError: tab-restore-newssite failed with return code 1: __main__.InvalidLastFrame: Difference in Images is too high, suspected faulty run <b>(5)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
           </ul>
         </li>
         
@@ -722,7 +843,7 @@ table.rates tr:hover { background: #fafafa; }
     
     <div class="suite">
       <div class="suite-header">
-        <span class="rank">#3</span>perftest-android-hw-a55-aarch64-shippable-startup-fenix-newssite-applink-startup<span class="badge">2 (7d)</span><span class="badge-rate" title="269 job runs in the 7d window">98.9% pass</span>
+        <span class="rank">#3</span>perftest-android-hw-a55-aarch64-shippable-startup-fenix-newssite-applink-startup<span class="badge">2 (7d)</span><span class="badge-rate" title="303 job runs in the 7d window">99.0% pass</span>
       </div>
       <ul class="details">
         
@@ -738,7 +859,7 @@ table.rates tr:hover { background: #fafafa; }
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2074915" target="_blank">Bug 2074915</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=2074915" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent [tier 2] mozperftest.test.shellscript.ScriptFailedError: newssite-applink-startup failed with return code 1: __main__.InvalidLastFrame: Difference in Images is too high, suspected faulty run <b>(2)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2074915" target="_blank">Bug 2074915</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2074915" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent [tier 2] mozperftest.test.shellscript.ScriptFailedError: newssite-applink-startup failed with return code 1: __main__.InvalidLastFrame: Difference in Images is too high, suspected faulty run <b>(2)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
           </ul>
         </li>
         
@@ -763,90 +884,7 @@ table.rates tr:hover { background: #fafafa; }
         
         <li>Contributing bugs:
           <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2071660" target="_blank">Bug 2071660</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=2071660" target="_blank" title="Orange Factor graph">📈</a> &mdash; Perma [tier 2] mozperftest.test.shellscript.ScriptFailedError: applink-startup-navigation-start failed with return code 1: Exception: Failed multiple retries with: Expected to match 1 process start string but matched 0 <b>(1)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2074915" target="_blank">Bug 2074915</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=2074915" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent [tier 2] mozperftest.test.shellscript.ScriptFailedError: newssite-applink-startup failed with return code 1: __main__.InvalidLastFrame: Difference in Images is too high, suspected faulty run <b>(1)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
-          </ul>
-        </li>
-        
-      </ul>
-    </div>
-    
-  </div>
-  
-  <div class="harness">
-    <div class="harness-header">
-      Talos
-      <span class="harness-totals" title="Summed over the suites shown here, not the whole harness">— 16 failures in shown suites (7d)</span>
-    </div>
-    
-    <div class="suite">
-      <div class="suite-header">
-        <span class="rank">#1</span>talos-xperf<span class="badge">7 (7d)</span><span class="badge-rate" title="138 job runs in the 7d window">92.8% pass</span>
-      </div>
-      <ul class="details">
-        
-        <li>Platforms:
-          <ul class="subdetails"><li>windows11: 7</li></ul>
-        </li>
-        
-        
-        <li>Repositories:
-          <ul class="subdetails"><li>autoland: 7</li></ul>
-        </li>
-        
-        
-        <li>Contributing bugs:
-          <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2065125" target="_blank">Bug 2065125</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=2065125" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent TEST-UNEXPECTED-FAIL : xperf: File &#39;c:\windows\system32\en-us\wscapi.dll.mui&#39; (normalized from &#39;C:\Windows\system32\en-US\wscapi.dll.mui&#39;) was accessed and we were not expecting it.  DiskReadCount: 2, DiskWriteCount: 0, DiskReadByte <b>(7)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
-          </ul>
-        </li>
-        
-      </ul>
-    </div>
-    
-    <div class="suite">
-      <div class="suite-header">
-        <span class="rank">#2</span>talos-xperf-swr<span class="badge">7 (7d)</span><span class="badge-rate" title="201 job runs in the 7d window">84.1% pass</span>
-      </div>
-      <ul class="details">
-        
-        <li>Platforms:
-          <ul class="subdetails"><li>windows11: 7</li></ul>
-        </li>
-        
-        
-        <li>Repositories:
-          <ul class="subdetails"><li>autoland: 4</li><li>mozilla-central: 3</li></ul>
-        </li>
-        
-        
-        <li>Contributing bugs:
-          <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2065125" target="_blank">Bug 2065125</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=2065125" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent TEST-UNEXPECTED-FAIL : xperf: File &#39;c:\windows\system32\en-us\wscapi.dll.mui&#39; (normalized from &#39;C:\Windows\system32\en-US\wscapi.dll.mui&#39;) was accessed and we were not expecting it.  DiskReadCount: 2, DiskWriteCount: 0, DiskReadByte <b>(7)</b> <span style="color:#888;font-size:.85em">[Performance]</span></li>
-          </ul>
-        </li>
-        
-      </ul>
-    </div>
-    
-    <div class="suite">
-      <div class="suite-header">
-        <span class="rank">#3</span>talos-damp-webconsole<span class="badge">2 (7d)</span><span class="badge-rate" title="863 job runs in the 7d window">97.5% pass</span>
-      </div>
-      <ul class="details">
-        
-        <li>Platforms:
-          <ul class="subdetails"><li>macosx1500: 2</li></ul>
-        </li>
-        
-        
-        <li>Repositories:
-          <ul class="subdetails"><li>autoland: 2</li></ul>
-        </li>
-        
-        
-        <li>Contributing bugs:
-          <ul class="buglist">
-            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1980168" target="_blank">Bug 1980168</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-12&amp;endday=2026-10-19&amp;tree=all&amp;bug=1980168" target="_blank" title="Orange Factor graph">📈</a> &mdash; Frequent macOS damp-inspector Automation Error: mozharness timed out after 3600 seconds running [&#39;/opt/worker/tasks/task_175387614102462/build/venv/bin/python&#39;, &#39;/opt/worker/tasks/task_175387614102462/build/tests/talos/talos/run_tests.py&#39;, &#39;--executablePa <b>(2)</b> <span style="color:#888;font-size:.85em">[Talos]</span></li>
+            <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2071660" target="_blank">Bug 2071660</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2071660" target="_blank" title="Orange Factor graph">📈</a> &mdash; Perma [tier 2] mozperftest.test.shellscript.ScriptFailedError: applink-startup-navigation-start failed with return code 1: Exception: Failed multiple retries with: Expected to match 1 process start string but matched 0 <b>(1)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li><li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=2074915" target="_blank">Bug 2074915</a> <a href="https://treeherder.mozilla.org/intermittent-failures/bugdetails?startday=2026-10-13&amp;endday=2026-10-20&amp;tree=all&amp;bug=2074915" target="_blank" title="Orange Factor graph">📈</a> &mdash; Intermittent [tier 2] mozperftest.test.shellscript.ScriptFailedError: newssite-applink-startup failed with return code 1: __main__.InvalidLastFrame: Difference in Images is too high, suspected faulty run <b>(1)</b> <span style="color:#888;font-size:.85em">[mozperftest]</span></li>
           </ul>
         </li>
         
@@ -873,35 +911,19 @@ table.rates tr:hover { background: #fafafa; }
     <tbody>
     
       <tr>
-        <td class="pct-bad">28.6%</td>
+        <td class="pct-bad">27.6%</td>
         <td class="num">8</td>
-        <td class="num">28</td>
+        <td class="num">29</td>
         <td>3</td>
         <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-hev3-connection-m-fenix-he3on-dns</td>
       </tr>
     
       <tr>
-        <td class="pct-bad">39.1%</td>
-        <td class="num">9</td>
-        <td class="num">23</td>
-        <td>3</td>
-        <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-hev3-connection-m-fenix-he3off-doh-nofis</td>
-      </tr>
-    
-      <tr>
-        <td class="pct-bad">40.0%</td>
-        <td class="num">10</td>
-        <td class="num">25</td>
-        <td>3</td>
-        <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-hev3-connection-m-fenix-he3off-dns-nofis</td>
-      </tr>
-    
-      <tr>
-        <td class="pct-bad">40.0%</td>
-        <td class="num">10</td>
-        <td class="num">25</td>
-        <td>3</td>
-        <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-hev3-connection-m-fenix-he3off-doh</td>
+        <td class="pct-bad">37.9%</td>
+        <td class="num">11</td>
+        <td class="num">29</td>
+        <td>2</td>
+        <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-upload-1M_400ms-0</td>
       </tr>
     
       <tr>
@@ -913,139 +935,171 @@ table.rates tr:hover { background: #fafafa; }
       </tr>
     
       <tr>
-        <td class="pct-bad">50.0%</td>
-        <td class="num">14</td>
-        <td class="num">28</td>
-        <td>2</td>
-        <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-upload-1M_400ms-0</td>
-      </tr>
-    
-      <tr>
-        <td class="pct-bad">50.0%</td>
-        <td class="num">12</td>
-        <td class="num">24</td>
+        <td class="pct-bad">42.3%</td>
+        <td class="num">11</td>
+        <td class="num">26</td>
         <td>3</td>
-        <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-hev3-connection-m-fenix-he3on-doh-nofis</td>
+        <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-hev3-connection-m-fenix-he3off-dns-nofis</td>
       </tr>
     
       <tr>
-        <td class="pct-bad">50.5%</td>
-        <td class="num">324</td>
-        <td class="num">642</td>
-        <td>2</td>
-        <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-tp6m-essential-fenix-allrecipes-nofis</td>
-      </tr>
-    
-      <tr>
-        <td class="pct-bad">54.2%</td>
-        <td class="num">13</td>
-        <td class="num">24</td>
-        <td>2</td>
-        <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-upload-100M_40ms-0</td>
-      </tr>
-    
-      <tr>
-        <td class="pct-bad">55.4%</td>
-        <td class="num">221</td>
-        <td class="num">399</td>
-        <td>1</td>
-        <td>test-windows11-64-24h2-shippable/opt-talos-perf-reftest-singletons</td>
-      </tr>
-    
-      <tr>
-        <td class="pct-bad">56.0%</td>
-        <td class="num">14</td>
-        <td class="num">25</td>
-        <td>2</td>
-        <td>test-android-hw-s24-14-0-aarch64-shippable/opt-browsertime-benchmark-speedometer3-mobile-fenix-nofis</td>
-      </tr>
-    
-      <tr>
-        <td class="pct-bad">56.0%</td>
-        <td class="num">14</td>
-        <td class="num">25</td>
+        <td class="pct-bad">42.3%</td>
+        <td class="num">11</td>
+        <td class="num">26</td>
         <td>2</td>
         <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-download-1M_400ms-0</td>
       </tr>
     
       <tr>
-        <td class="pct-bad">56.0%</td>
-        <td class="num">14</td>
-        <td class="num">25</td>
+        <td class="pct-bad">42.3%</td>
+        <td class="num">11</td>
+        <td class="num">26</td>
         <td>2</td>
         <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-download-300M_80ms-0</td>
       </tr>
     
       <tr>
-        <td class="pct-bad">56.5%</td>
-        <td class="num">13</td>
-        <td class="num">23</td>
+        <td class="pct-bad">42.3%</td>
+        <td class="num">11</td>
+        <td class="num">26</td>
         <td>2</td>
-        <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-download-300M_40ms-0</td>
+        <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-upload-100M_40ms-0</td>
       </tr>
     
       <tr>
-        <td class="pct-bad">56.5%</td>
-        <td class="num">13</td>
-        <td class="num">23</td>
-        <td>2</td>
-        <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-upload-10M_40ms-0</td>
-      </tr>
-    
-      <tr>
-        <td class="pct-bad">58.3%</td>
-        <td class="num">14</td>
-        <td class="num">24</td>
+        <td class="pct-bad">44.0%</td>
+        <td class="num">11</td>
+        <td class="num">25</td>
         <td>2</td>
         <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-download-100M_40ms-0</td>
       </tr>
     
       <tr>
-        <td class="pct-bad">58.3%</td>
-        <td class="num">14</td>
-        <td class="num">24</td>
+        <td class="pct-bad">44.0%</td>
+        <td class="num">11</td>
+        <td class="num">25</td>
         <td>2</td>
         <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-download-10M_40ms-0</td>
       </tr>
     
       <tr>
-        <td class="pct-bad">58.3%</td>
-        <td class="num">14</td>
-        <td class="num">24</td>
+        <td class="pct-bad">44.0%</td>
+        <td class="num">11</td>
+        <td class="num">25</td>
+        <td>2</td>
+        <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-download-300M_40ms-0</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">44.0%</td>
+        <td class="num">11</td>
+        <td class="num">25</td>
+        <td>2</td>
+        <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-upload-10M_40ms-0</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">44.0%</td>
+        <td class="num">11</td>
+        <td class="num">25</td>
         <td>2</td>
         <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-upload-300M_40ms-0</td>
       </tr>
     
       <tr>
-        <td class="pct-bad">58.3%</td>
-        <td class="num">14</td>
-        <td class="num">24</td>
+        <td class="pct-bad">44.0%</td>
+        <td class="num">11</td>
+        <td class="num">25</td>
         <td>2</td>
         <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-upload-300M_80ms-0</td>
       </tr>
     
       <tr>
-        <td class="pct-bad">59.3%</td>
-        <td class="num">16</td>
+        <td class="pct-bad">44.4%</td>
+        <td class="num">12</td>
         <td class="num">27</td>
+        <td>3</td>
+        <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-hev3-connection-m-fenix-he3off-doh</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">45.8%</td>
+        <td class="num">11</td>
+        <td class="num">24</td>
+        <td>3</td>
+        <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-hev3-connection-m-fenix-he3off-doh-nofis</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">46.4%</td>
+        <td class="num">13</td>
+        <td class="num">28</td>
         <td>2</td>
         <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-upload</td>
       </tr>
     
       <tr>
-        <td class="pct-bad">60.0%</td>
-        <td class="num">15</td>
+        <td class="pct-bad">48.0%</td>
+        <td class="num">12</td>
         <td class="num">25</td>
         <td>3</td>
-        <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-hev3-connection-m-fenix-he3off-dns</td>
+        <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-hev3-connection-m-fenix-he3on-doh-nofis</td>
       </tr>
     
       <tr>
-        <td class="pct-bad">60.0%</td>
-        <td class="num">15</td>
-        <td class="num">25</td>
-        <td>3</td>
-        <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-hev3-connection-m-fenix-he3on-doh</td>
+        <td class="pct-bad">50.1%</td>
+        <td class="num">318</td>
+        <td class="num">635</td>
+        <td>2</td>
+        <td>test-android-hw-a55-14-0-aarch64-shippable/opt-browsertime-tp6m-essential-fenix-allrecipes-nofis</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">52.8%</td>
+        <td class="num">19</td>
+        <td class="num">36</td>
+        <td>2</td>
+        <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-download</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">56.5%</td>
+        <td class="num">13</td>
+        <td class="num">23</td>
+        <td>2</td>
+        <td>test-android-hw-s24-14-0-aarch64-shippable/opt-browsertime-benchmark-speedometer3-mobile-fenix-nofis</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">56.7%</td>
+        <td class="num">17</td>
+        <td class="num">30</td>
+        <td>2</td>
+        <td>perftest-android-hw-a55-background-resource-chrome</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">56.7%</td>
+        <td class="num">233</td>
+        <td class="num">411</td>
+        <td>1</td>
+        <td>test-windows11-64-24h2-shippable/opt-talos-perf-reftest-singletons</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">58.1%</td>
+        <td class="num">18</td>
+        <td class="num">31</td>
+        <td>1</td>
+        <td>test-android-hw-p6-13-0-aarch64-shippable/opt-browsertime-benchmark-speedometer3-mobile-fenix</td>
+      </tr>
+    
+      <tr>
+        <td class="pct-bad">60.7%</td>
+        <td class="num">17</td>
+        <td class="num">28</td>
+        <td>2</td>
+        <td>perftest-android-hw-a55-foreground-resource-chrome</td>
       </tr>
     
       <tr>
@@ -1054,22 +1108,6 @@ table.rates tr:hover { background: #fafafa; }
         <td class="num">28</td>
         <td>2</td>
         <td>test-android-hw-p6-13-0-aarch64-shippable/opt-browsertime-benchmark-speedometer3-mobile-fenix-nofis</td>
-      </tr>
-    
-      <tr>
-        <td class="pct-bad">62.9%</td>
-        <td class="num">22</td>
-        <td class="num">35</td>
-        <td>2</td>
-        <td>test-linux2404-64-shippable/opt-browsertime-network-bench-firefox-h3-download</td>
-      </tr>
-    
-      <tr>
-        <td class="pct-bad">64.5%</td>
-        <td class="num">20</td>
-        <td class="num">31</td>
-        <td>1</td>
-        <td>test-android-hw-p6-13-0-aarch64-nightlyasrelease/opt-browsertime-benchmark-speedometer3-mobile-fenix</td>
       </tr>
     
     </tbody>
